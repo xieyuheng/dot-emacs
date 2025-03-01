@@ -4,3 +4,4 @@
 (load "config-global-keys.el")
 (load "config-general-settings.el")
 (load "config-theme.el")
+(load "config-fonts.el")
