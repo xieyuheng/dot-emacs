@@ -1,1 +1,2 @@
-use module system instead of org-mode
+config-general-settings.el
+config-eshell.el
