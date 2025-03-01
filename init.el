@@ -3,3 +3,4 @@
 (load "config-m-x.el")
 (load "config-global-keys.el")
 (load "config-general-settings.el")
+(load "config-theme.el")

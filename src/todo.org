@@ -952,54 +952,6 @@
     ;; (set-fontset-font t 'symbol (font-spec :name "Noto Emoji"))
     #+end_src
 
-** theme
-
-*** molokai-theme
-
-    #+begin_src emacs-lisp :tangle ~/.emacs
-    (add-to-list 'custom-theme-load-path "~/.emacs.d/theme/molokai-theme/")
-    (load-theme 'molokai t)
-    (add-to-list 'load-path "~/.emacs.d/theme/molokai-theme/")
-    (require 'molokai-theme-kit)
-    #+end_src
-
-*** zenburn
-
-    #+begin_src emacs-lisp :tangle ~/.emacs
-    ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/theme/zenburn-emacs/")
-    ;; (load-theme 'zenburn t)
-    #+end_src
-
-*** anti-zenburn
-
-    #+begin_src emacs-lisp :tangle ~/.emacs
-    ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/theme/anti-zenburn-theme/")
-    ;; (load-theme 'anti-zenburn t)
-    #+end_src
-
-*** tao
-
-    #+begin_src emacs-lisp :tangle ~/.emacs
-    ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/theme/tao-theme-emacs/")
-    ;; (add-to-list 'load-path "~/.emacs.d/theme/tao-theme-emacs/")
-    ;; (load-theme 'tao-yang t)
-    ;; (load-theme 'tao-yin t)
-    #+end_src
-
-*** github-modern
-
-    #+begin_src emacs-lisp :tangle ~/.emacs
-    ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/theme/github-modern-theme/")
-    ;; (load-theme 'github-modern t)
-    #+end_src
-
-*** github
-
-    #+begin_src emacs-lisp :tangle ~/.emacs
-    ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/theme/github-theme/")
-    ;; (load-theme 'github t)
-    #+end_src
-
 ** translucent
 
    #+begin_src emacs-lisp :tangle ~/.emacs
