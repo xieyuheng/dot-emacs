@@ -4,6 +4,8 @@ config-projectile
 config-x-clipboard-yank
 config-hippie-expand
 
+rename xyhlib
+
 setup langs/
 
 [readme] usage section in readme
