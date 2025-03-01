@@ -458,7 +458,7 @@
     ;; i comment out the binding of:
     ;; ";" -> paredit-semicolon
     ;; "M-;" -> paredit-comment-dwim
-    ;; in the paredit.el
+    ;; in the paredit.el;;
     (defun maybe-map-paredit-semicolon ()
       (cond
         ((memq major-mode modes-about-lisp)

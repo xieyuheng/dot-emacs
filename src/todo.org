@@ -1,134 +1,5 @@
 #+title: init emacs ^-^
 
-* general setting
-
-** line height
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq-default line-spacing 0.15)
-   ;; (setq-default line-spacing 0)
-   #+end_src
-
-** title
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq frame-title-format "%b")
-   #+end_src
-
-** variable
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq case-fold-search nil)
-   (setq case-replace t)
-   (setq indent-tabs-mode nil)
-   (setq-default indent-tabs-mode nil)
-   ;; 全局设置上面的变量并没有用
-   (add-hook 'prog-mode-hook (lambda () (setq indent-tabs-mode nil)))
-
-   (fringe-mode '(6 . 6))
-
-   (transient-mark-mode t)
-
-   (setq column-number-mode t)
-
-   (setq mouse-yank-at-point t)
-
-   (setq kill-ring-max 200)
-
-   (setq enable-recursive-minibuffers nil)
-
-   (add-hook 'minibuffer-setup-hook
-     (lambda () (setq truncate-lines t)))
-
-   ;; (setq scroll-margin 4)
-   (setq scroll-margin 7)
-
-   (setq scroll-conservatively 10000)
-
-   (show-paren-mode t)
-   (setq show-paren-style 'parentheses)
-   #+end_src
-
-** enable disable
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (put 'set-goal-column 'disabled nil)
-   (put 'narrow-to-region 'disabled nil)
-   (put 'upcase-region 'disabled nil)
-   (put 'downcase-region 'disabled nil)
-   #+end_src
-
-** disable backup
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq make-backup-files nil)
-   (setq delete-old-versions t)
-
-   (setq auto-save-default nil)
-   (setq auto-save-timeout 100000000000000)
-   #+end_src
-
-** dired
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (add-hook 'dired-mode-hook
-     (lambda ()
-       (local-set-key (kbd "C-n") 'ranger-next-file)
-       (local-set-key (kbd "C-p") 'ranger-prev-file)))
-   #+end_src
-
-** variable about mode
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq modes-about-lisp
-         '(scheme-mode
-           esse-mode
-           inferior-scheme-mode
-
-           lisp-mode
-           lisp-interaction-mode
-
-           emacs-lisp-mode
-           ielm-mode
-           inferior-emacs-lisp-mode
-           ))
-
-   (setq modes-about-haskell
-         '(haskell-mode
-           inferior-haskell-mode
-           ))
-
-   (setq modes-about-C
-         '(c-mode
-           ))
-   #+end_src
-
-** kill-buffer-query-functions
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq kill-buffer-query-functions nil)
-   #+end_src
-
-** tab-width
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq tab-width 2)
-   #+end_src
-
-** bell
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq visible-bell t)
-   #+end_src
-
-* input-method
-
-** x-gtk-use-native-input
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq x-gtk-use-native-input t)
-   #+end_src
-
 * language
 
 ** edit sexp
@@ -195,25 +66,13 @@
 *** paredit
     file:~/.emacs.d/edit-sexp/paredit.el
     #+begin_src emacs-lisp :tangle ~/.emacs
-    (autoload 'enable-paredit-mode
-        "paredit"
+    (autoload 'enable-paredit-mode "paredit"
       "Turn on pseudo-structural editing of Lisp code." t)
 
     (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-    (add-hook 'esse-mode-hook             #'enable-paredit-mode)
-    (add-hook 'inferior-scheme-mode-hook  #'enable-paredit-mode)
-
-    (add-hook 'racket-repl-mode-hook      #'enable-paredit-mode)
     (add-hook 'racket-mode-hook           #'enable-paredit-mode)
-
-
     (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-
     (add-hook 'shen-mode-hook             #'enable-paredit-mode)
-    (add-hook 'inferior-shen-mode-hook    #'enable-paredit-mode)
-
-
-    ;; (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
 
     ;; the following is about the *scratch* buffer
     ;; (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
@@ -221,42 +80,6 @@
     ;; 只有在下面的 mode 中不使用 enable-paredit-mode
     ;; *scratch* buffer 中的 RET 才能正常
     (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-
-
-    ;; (add-hook 'haskell-mode-hook          #'enable-paredit-mode)
-
-    ;; (add-hook 'c-mode-hook                #'enable-paredit-mode)
-
-    (defun maybe-map-paredit-newline ()
-      (cond
-        ((memq major-mode '(inferior-scheme-mode
-                            inferior-shen-mode
-                            inferior-emacs-lisp-mode
-                            lisp-interaction-mode
-                            inferior-haskell-mode))
-         (local-set-key (kbd "RET") 'comint-send-input))
-        ((memq major-mode '(scheme-mode
-                            esse-mode
-                            emacs-lisp-mode
-                            lisp-mode
-                            lisp-interaction-mode))
-         (local-set-key (kbd "RET") 'paredit-newline))
-        ))
-    (add-hook 'paredit-mode-hook 'maybe-map-paredit-newline)
-
-    ;; for i want to use paredit a lot of place out of LISP
-    ;; i comment out the binding of:
-    ;; ";" -> paredit-semicolon
-    ;; "M-;" -> paredit-comment-dwim
-    ;; in the paredit.el
-    (defun maybe-map-paredit-semicolon ()
-      (cond
-        ((memq major-mode modes-about-lisp)
-         (progn
-           (local-set-key (kbd ";") 'paredit-semicolon)
-           (local-set-key (kbd "M-;") 'paredit-comment-dwim)))
-        ))
-    (add-hook 'paredit-mode-hook 'maybe-map-paredit-semicolon)
     #+end_src
 
 *** mini-parentheses-editor
@@ -919,12 +742,6 @@
    (require 'yaml-mode)
    (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
    #+end_src
-
-* comment
-
-  #+begin_src emacs-lisp :tangle ~/.emacs
-  (global-set-key (kbd "M-;") 'comment-dwim)
-  #+end_src
 
 * app
 

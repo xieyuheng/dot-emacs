@@ -61,6 +61,7 @@
 
 (global-set-key (kbd "C-.") 'comment-region)
 (global-set-key (kbd "C-,") 'uncomment-region)
+(global-set-key (kbd "M-;") 'comment-dwim)
 
 ;;;; edit
 
