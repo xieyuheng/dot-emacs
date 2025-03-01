@@ -1,5 +1,5 @@
-config-initial-buffer.el
-config-ranger.el
-config-eshell.el
+config-ranger
+config-eshell
 
 [readme] usage section in readme
+remove init-emacs.org

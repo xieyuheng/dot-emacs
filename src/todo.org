@@ -886,15 +886,6 @@
    ;; (server-force-delete)
    #+end_src
 
-* scratch
-
-  #+begin_src emacs-lisp :tangle ~/.emacs
-  (if (<= (length command-line-args) 1)
-    (let ((filename "~/todo/TODO.md"))
-      (when (file-exists-p filename)
-        (setq initial-buffer-choice filename))))
-  #+end_src
-
 * projectile
 
   #+begin_src emacs-lisp :tangle ~/.emacs

@@ -1,7 +1,8 @@
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src/")
 
-(load "config-m-x.el")
-(load "config-global-keys.el")
-(load "config-general-settings.el")
-(load "config-theme.el")
-(load "config-fonts.el")
+(load "config-m-x")
+(load "config-global-keys")
+(load "config-general-settings")
+(load "config-theme")
+(load "config-fonts")
+(load "config-initial-buffer")
