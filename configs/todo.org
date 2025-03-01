@@ -768,6 +768,8 @@
 
 ** primary-clipboard-yank
 
+x-clipboard-yank
+
    #+begin_src emacs-lisp :tangle ~/.emacs
    (defun primary-clipboard-yank ()
      (interactive)
@@ -797,75 +799,31 @@
    (setq uniquify-buffer-name-style 'forward)
    #+end_src
 
-** region-state
+* region-state
 
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (add-to-list 'load-path "~/.emacs.d/region-state/")
-   (require 'region-state)
-   (region-state-mode)
-   (setq region-state-display-place 'echo-area)
-   ;; (setq region-state-display-place 'header-line)
-   ;; (setq region-state-display-place 'mode-line)
-   #+end_src
-
-
-* looks like
-
-** translucent
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   ;; 当前窗口和非当前窗口时透明度
-   (setq translucent-pair '(80 60))
-
-   (setq alpha-list `(,translucent-pair (100 100)))
-   (defun translucent ()
-     (interactive)
-     (let* ((h (car alpha-list))
-            (a (car h))
-            (ab (car (cdr h))))
-           (set-frame-parameter (selected-frame) 'alpha (list a ab))
-           (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))
-           (setq alpha-list (cdr (append alpha-list (list h))))))
-   (global-set-key (kbd "<f9>") 'translucent)
-
-   (setq alpha-list-off `((100 100) ,translucent-pair))
-   (defun translucent-off ()
-     (interactive)
-     (let* ((h (car alpha-list-off))
-            (a (car h))
-            (ab (car (cdr h))))
-           (set-frame-parameter (selected-frame) 'alpha (list a ab))
-           (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))))
-
-   (setq alpha-list-on `(,translucent-pair (100 100)))
-   (defun translucent-on ()
-     (interactive)
-     (let* ((h (car alpha-list-on))
-            (a (car h))
-            (ab (car (cdr h))))
-           (set-frame-parameter (selected-frame) 'alpha (list a ab))
-           (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))))
-
-   ;; (translucent-on)
-   (translucent-off)
-   #+end_src
+#+begin_src emacs-lisp :tangle ~/.emacs
+(add-to-list 'load-path "~/.emacs.d/region-state/")
+(require 'region-state)
+(region-state-mode)
+(setq region-state-display-place 'echo-area)
+;; (setq region-state-display-place 'header-line)
+;; (setq region-state-display-place 'mode-line)
+#+end_src
 
 * emacs server
 
-** emacs server
+#+begin_src emacs-lisp :tangle ~/.emacs
+(require 'server)
+(when (not (server-running-p)) (server-start))
 
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (require 'server)
-   (when (not (server-running-p)) (server-start))
-
-   ;; (server-start)
-   ;; (server-force-delete)
-   #+end_src
+;; (server-start)
+;; (server-force-delete)
+#+end_src
 
 * projectile
 
-  #+begin_src emacs-lisp :tangle ~/.emacs
-  (add-to-list 'load-path "~/.emacs.d/projectile/")
-  (require 'projectile)
-  (projectile-mode 1)
-  #+end_src
+#+begin_src emacs-lisp :tangle ~/.emacs
+(add-to-list 'load-path "~/.emacs.d/projectile/")
+(require 'projectile)
+(projectile-mode 1)
+#+end_src
