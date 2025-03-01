@@ -6,3 +6,4 @@
 (load "config-theme")
 (load "config-fonts")
 (load "config-initial-buffer")
+(load "config-eshell")
