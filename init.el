@@ -7,3 +7,4 @@
 (load "config-fonts")
 (load "config-initial-buffer")
 (load "config-eshell")
+(load "config-ranger")
