@@ -834,14 +834,6 @@
 
 * looks like
 
-** window
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq default-frame-alist '((fullscreen . maximized)))
-   (setq initial-frame-alist '((fullscreen . maximized)))
-   ;; (custom-set-variables '(default-frame-alist (quote ((fullscreen . maximized)))))
-   ;; (custom-set-variables '(initial-frame-alist (quote ((fullscreen . maximized)))))
-   #+end_src
 
 ** translucent
 
@@ -882,36 +874,6 @@
    (translucent-off)
    #+end_src
 
-** no-bother
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (mouse-avoidance-mode 'animate)
-   (setq inhibit-startup-message t)
-   (setq initial-scratch-message "")
-
-   (tool-bar-mode -1)
-   (menu-bar-mode -1)
-   (scroll-bar-mode -1)
-
-   (fset 'yes-or-no-p 'y-or-n-p)
-   #+end_src
-
-** cursor
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (blink-cursor-mode -1)
-
-   ;; (set-frame-parameter nil 'cursor-type 'hollow)
-   (set-frame-parameter nil 'cursor-type 'box)
-   ;; (set-frame-parameter nil 'cursor-type 'bar)
-   ;; (set-frame-parameter nil 'cursor-type '(bar . 2))
-   ;; (set-frame-parameter nil 'cursor-type 'hbar)
-   ;; (set-frame-parameter nil 'cursor-type '(hbar . 8))
-   #+end_src
-
-** fullscreen
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq frame-resize-pixelwise t)
-   #+end_src
-
 * emacs server
 
 ** emacs server
@@ -939,11 +901,4 @@
   (add-to-list 'load-path "~/.emacs.d/projectile/")
   (require 'projectile)
   (projectile-mode 1)
-  #+end_src
-
-* auto revert
-
-  #+begin_src emacs-lisp :tangle ~/.emacs
-  (global-auto-revert-mode t)
-  (setq auto-revert-interval 0.3)
   #+end_src

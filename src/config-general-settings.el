@@ -58,3 +58,40 @@
 ;;;; input-method
 
 (setq x-gtk-use-native-input t)
+
+;;;; window
+
+(setq default-frame-alist '((fullscreen . maximized)))
+(setq initial-frame-alist '((fullscreen . maximized)))
+
+;;;; 免打扰
+
+(mouse-avoidance-mode 'animate)
+(setq inhibit-startup-message t)
+(setq initial-scratch-message "")
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;;;; 光标
+
+(blink-cursor-mode -1)
+
+;; (set-frame-parameter nil 'cursor-type 'hollow)
+(set-frame-parameter nil 'cursor-type 'box)
+;; (set-frame-parameter nil 'cursor-type 'bar)
+;; (set-frame-parameter nil 'cursor-type '(bar . 2))
+;; (set-frame-parameter nil 'cursor-type 'hbar)
+;; (set-frame-parameter nil 'cursor-type '(hbar . 8))
+
+;;;; 修复 fullscreen 效果
+
+(setq frame-resize-pixelwise t)
+
+;;;; watch file change and update buffer
+
+(global-auto-revert-mode t)
+(setq auto-revert-interval 0.3)
