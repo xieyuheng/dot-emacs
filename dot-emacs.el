@@ -49,3 +49,4 @@
 (load "config-uxn")
 
 (load "config-sml")
+(load "config-caml")
