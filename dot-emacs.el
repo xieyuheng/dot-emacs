@@ -50,3 +50,4 @@
 
 (load "config-sml")
 (load "config-caml")
+(load "config-agda")

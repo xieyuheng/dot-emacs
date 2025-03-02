@@ -12,5 +12,4 @@
 (add-hook
  'sml-mode-hook
  (lambda ()
-   (define-key sml-mode-map (kbd "C-x C-e") 'sml-send-function)
-   (turn-off-indent)))
+   (define-key sml-mode-map (kbd "C-x C-e") 'sml-send-function)))
