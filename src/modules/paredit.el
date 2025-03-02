@@ -149,7 +149,7 @@
 
 (defconst paredit-version 23)
 (defconst paredit-beta-p nil)
-
+
 (eval-and-compile
 
   (defun paredit-xemacs-p ()
