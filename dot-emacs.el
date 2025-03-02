@@ -4,7 +4,7 @@
 
 ;;;; configs
 
-(add-to-list 'load-path "~/.emacs.d/dot-emacs/src/configs")
+(add-to-list 'load-path "~/.emacs.d/dot-emacs/src")
 
 (load "config-m-x")
 (load "config-keys")
