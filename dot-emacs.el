@@ -19,6 +19,7 @@
 (load "config-x-clipboard-yank")
 (load "config-projectile")
 (load "config-emacs-server")
+(load "config-paredit")
 
 ;;;; langs
 

@@ -1,6 +1,4 @@
-# configs
-
-config-paredit
+move edit-sexp to modules
 
 # langs
 
