@@ -28,3 +28,4 @@
 (load "config-markdown")
 (load "config-scheme")
 (load "config-lisp")
+(load "config-racket")

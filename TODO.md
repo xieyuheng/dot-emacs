@@ -1,7 +1,5 @@
 # langs
 
-config-racket
-
 config-c
 config-python
 

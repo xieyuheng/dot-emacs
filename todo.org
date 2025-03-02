@@ -13,14 +13,6 @@
    (require 'uxntal-mode)
    #+end_src
 
-** racket
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (add-to-list 'load-path "~/.emacs.d/racket-mode/")
-   (require 'racket-mode)
-   (setq auto-mode-alist (cons `("\\.rkt$" . racket-mode) auto-mode-alist))
-   #+end_src
-
 ** general seting
 
    Non-nil means print recursive structures using #N= and #N# syntax.
