@@ -95,3 +95,18 @@
 
 (global-auto-revert-mode t)
 (setq auto-revert-interval 0.3)
+
+;;;; gc-cons-threshold
+
+;; default 800000 -- 0.76 MB
+;; (setq gc-cons-threshold 800000)
+
+;;;; cua-selection-mode
+
+(cua-selection-mode 1)
+
+;;;; uniquify
+
+(require 'uniquify)
+;; (setq uniquify-buffer-name-style 'reverse)
+(setq uniquify-buffer-name-style 'forward)

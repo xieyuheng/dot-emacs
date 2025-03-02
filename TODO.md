@@ -1,4 +1,3 @@
-more settings
 config-projectile
 
 config-emacs-server

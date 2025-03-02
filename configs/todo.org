@@ -743,29 +743,6 @@
    (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
    #+end_src
 
-* app
-
-** gc-cons-threshold
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   ;; default 800000 -- 0.76 MB
-   (setq gc-cons-threshold 800000)
-   #+end_src
-
-** cua-selection-mode
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (cua-selection-mode 1)
-   #+end_src
-
-** uniquify
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (require 'uniquify)
-   ;(setq uniquify-buffer-name-style 'reverse)
-   (setq uniquify-buffer-name-style 'forward)
-   #+end_src
-
 * emacs server
 
 #+begin_src emacs-lisp :tangle ~/.emacs
