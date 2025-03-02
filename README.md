@@ -14,7 +14,10 @@
 
 ## Usage
 
-```
+```sh
+cd ~/.emacs.d
+git clone git@github.com:xieyuheng/dot-emacs.git
+cd dot-emacs
 cp dot-emacs.el ~/.emacs
 ```
 
