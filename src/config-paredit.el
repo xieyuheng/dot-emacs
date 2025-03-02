@@ -11,10 +11,9 @@
 
 ;;;; paredit
 
-;; file:~/.emacs.d/edit-sexp/paredit.el
-
-(autoload 'enable-paredit-mode "paredit"
-  "Turn on pseudo-structural editing of Lisp code." t)
+(add-to-list 'load-path "~/.emacs.d/paredit")
+(require 'paredit)
+(paredit-mode +1)
 
 (add-hook 'scheme-mode-hook      'enable-paredit-mode)
 (add-hook 'racket-mode-hook      'enable-paredit-mode)
