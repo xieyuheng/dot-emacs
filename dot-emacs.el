@@ -30,3 +30,4 @@
 (load "config-lisp")
 (load "config-racket")
 (load "config-clojure")
+(load "config-cicada")
