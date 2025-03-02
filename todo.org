@@ -13,14 +13,6 @@
    (require 'uxntal-mode)
    #+end_src
 
-** general seting
-
-   Non-nil means print recursive structures using #N= and #N# syntax.
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq print-circle t)
-   #+end_src
-
 ** shen
 
    #+begin_src emacs-lisp :tangle ~/.emacs
