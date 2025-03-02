@@ -1,4 +1,9 @@
-config-markdown
+# configs
+
+config-paredit
+
+# langs
+
 config-scheme
 config-lisp
 config-c

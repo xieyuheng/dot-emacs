@@ -558,46 +558,6 @@
     (add-to-list 'auto-mode-alist '("\\.wast\\'" . wat-mode))
     #+end_src
 
-** markdown
-
-*** edit-indirect
-
-    #+begin_src emacs-lisp :tangle ~/.emacs
-    (add-to-list 'load-path "~/.emacs.d/edit-indirect/")
-    (require 'edit-indirect)
-
-    (define-key edit-indirect-mode-map
-      (kbd "C-s C-s") 'edit-indirect-commit)
-    #+end_src
-
-*** markdown
-
-    #+begin_src emacs-lisp :tangle ~/.emacs
-    (add-to-list 'load-path "~/.emacs.d/markdown-mode/")
-
-    (autoload 'markdown-mode "markdown-mode"
-      "Major mode for editing Markdown files" t)
-    (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-    (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-
-    (setq markdown-fontify-code-blocks-natively t)
-
-    (add-hook
-     'markdown-mode-hook
-     (lambda ()
-       (local-set-key (kbd "C-s C-s") 'markdown-edit-code-block)
-       (local-set-key (kbd "M-p") 'backward-paragraph)
-       (local-set-key (kbd "M-n") 'forward-paragraph)
-       ;; (set-face-attribute 'markdown-header-face-1 nil :foreground "#DFAF8F")
-       ;; (set-face-attribute 'markdown-header-face-2 nil :foreground "#BFEBBF")
-       ;; (set-face-attribute 'markdown-header-face-3 nil :foreground "#7CB8BB")
-       ;; (set-face-attribute 'markdown-header-face-4 nil :foreground "#D0BF8F")
-       ;; (set-face-attribute 'markdown-header-face-5 nil :foreground "#93E0E3")
-       ;; (set-face-attribute 'markdown-header-face-6 nil :foreground "#9FC59F")
-       ;; (set-face-attribute 'markdown-header-delimiter-face nil :foreground 'unspecified)
-       ))
-    #+end_src
-
 ** txt
 
    #+begin_src emacs-lisp :tangle ~/.emacs

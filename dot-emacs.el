@@ -1,6 +1,10 @@
+;;;; modules
+
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src/")
+
+;;;; configs
+
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/configs/")
-(add-to-list 'load-path "~/.emacs.d/dot-emacs/configs/langs")
 
 (load "config-m-x")
 (load "config-keys")
@@ -15,3 +19,9 @@
 (load "config-x-clipboard-yank")
 (load "config-projectile")
 (load "config-emacs-server")
+
+;;;; langs
+
+(add-to-list 'load-path "~/.emacs.d/dot-emacs/configs/langs")
+
+(load "config-markdown")
