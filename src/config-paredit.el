@@ -8,14 +8,14 @@
 ;; (global-set-key (kbd "s-w") 'backward-sexp)
 ;; (global-set-key (kbd "s-s") 'forward-sexp)
 ;;
-;; (defun in-> () (interactive) (down-list))
-;; (global-set-key (kbd "s-e") 'in->)
+;; (defun down-list () (interactive) (down-list))
+;; (global-set-key (kbd "s-e") 'down-list)
 ;;
-;; (defun <-out () (interactive) (backward-up-list))
-;; (global-set-key (kbd "s-q") '<-out)
+;; (defun backward-up-list () (interactive) (backward-up-list))
+;; (global-set-key (kbd "s-q") 'backward-up-list)
 ;;
-;; (defun out-> () (interactive) (up-list))
-;; (global-set-key (kbd "s-d") 'out->)
+;; (defun up-list () (interactive) (up-list))
+;; (global-set-key (kbd "s-d") 'up-list)
 
 
 ;; (global-set-key (kbd "s-z") 'mark-defun)
@@ -24,18 +24,18 @@
 (global-set-key (kbd "M-e") 'backward-sexp)
 (global-set-key (kbd "M-s") 'forward-sexp)
 
-(defun in-> () (interactive) (down-list))
-;; (global-set-key (kbd "M-e") 'in->)
+(defun down-list () (interactive) (down-list))
+;; (global-set-key (kbd "M-e") 'down-list)
 
-(defun <-out () (interactive) (backward-up-list))
-(global-set-key (kbd "M-q") '<-out)
+(defun backward-up-list () (interactive) (backward-up-list))
+(global-set-key (kbd "M-q") 'backward-up-list)
 
 (add-hook 'prog-mode-hook
           (lambda ()
-            (local-set-key (kbd "M-q") '<-out)))
+            (local-set-key (kbd "M-q") 'backward-up-list)))
 
-(defun out-> () (interactive) (up-list))
-;; (global-set-key (kbd "s-d") 'out->)
+(defun up-list () (interactive) (up-list))
+;; (global-set-key (kbd "s-d") 'up-list)
 
 
 ;; the following is for emacs-nox which can not see s-
@@ -45,9 +45,9 @@
 ;; (global-set-key (kbd "C-M-p") 'backward-sexp)
 ;; (global-set-key (kbd "C-M-n") 'forward-sexp)
 
-;; (global-set-key (kbd "C-M-f") 'in->)
+;; (global-set-key (kbd "C-M-f") 'down-list)
 
-;; (global-set-key (kbd "C-M-b") '<-out)
+;; (global-set-key (kbd "C-M-b") 'backward-up-list)
 
 
 ;;;; paredit

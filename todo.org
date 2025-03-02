@@ -85,7 +85,7 @@
        (local-set-key (kbd "C-c C-e") 'scheme-send-definition-split-window)
        (local-set-key (kbd "C-<tab>") 'scheme-easy-to-eval)
        (local-set-key (kbd "{") (lambda () (interactive) (insert "{}") (backward-char 1)))
-       (local-set-key (kbd "}") 'out->)
+       (local-set-key (kbd "}") 'up-list)
        ))
     #+end_src
 
