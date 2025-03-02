@@ -2,9 +2,8 @@ config-region-state
 config-emacs-server
 config-projectile
 config-x-clipboard-yank
-config-hippie-expand
 
-rename xyhlib
+rename xyhlib.el
 
 setup langs/
 
