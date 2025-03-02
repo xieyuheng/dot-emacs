@@ -42,3 +42,5 @@
 (load "config-cicada")
 (load "config-go")
 (load "config-rust")
+(load "config-lua")
+

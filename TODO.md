@@ -1,4 +1,4 @@
-config-lua
+config-julia
 
 config-agda
 config-ocaml
