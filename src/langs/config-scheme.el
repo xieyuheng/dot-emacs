@@ -6,6 +6,7 @@
 (setq auto-mode-alist (cons `("\\.sls$" . scheme-mode) auto-mode-alist))
 (setq auto-mode-alist (cons `("\\.mu$" . scheme-mode) auto-mode-alist))
 (setq auto-mode-alist (cons `("\\.lisp" . scheme-mode) auto-mode-alist))
+(setq auto-mode-alist (cons `("\\.pie$" . scheme-mode) auto-mode-alist))
 
 (defun switch-to-buffer-*scheme* ()
   (interactive)

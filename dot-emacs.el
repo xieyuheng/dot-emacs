@@ -27,3 +27,4 @@
 
 (load "config-markdown")
 (load "config-scheme")
+(load "config-lisp")

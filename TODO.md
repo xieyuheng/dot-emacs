@@ -1,6 +1,7 @@
 # langs
 
-config-lisp
+config-racket
+
 config-c
 config-python
 
