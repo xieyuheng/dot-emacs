@@ -1,5 +1,3 @@
-config-web
-
 config-scala
 config-yaml
 

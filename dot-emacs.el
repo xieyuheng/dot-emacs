@@ -32,3 +32,4 @@
 (load "config-clojure")
 (load "config-cicada")
 (load "config-typescript")
+(load "config-web")
