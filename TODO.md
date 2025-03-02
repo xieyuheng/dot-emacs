@@ -1,5 +1,3 @@
-config-projectile
-
 config-emacs-server
 
 rename xyhlib.el

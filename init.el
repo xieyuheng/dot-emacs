@@ -12,3 +12,4 @@
 (load "config-ranger")
 (load "config-region-state")
 (load "config-x-clipboard-yank")
+(load "config-projectile")
