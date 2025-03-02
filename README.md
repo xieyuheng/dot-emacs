@@ -1,5 +1,11 @@
 # My emacs config file
 
+## Usage
+
+```bash
+cp dot-emacs.el ~/.emacs
+```
+
 ## Contributions
 
 To make a contribution, fork this project and create a pull request.
