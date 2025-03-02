@@ -44,3 +44,6 @@
 (load "config-rust")
 (load "config-lua")
 (load "config-julia")
+
+(load "config-forth")
+(load "config-uxn")
