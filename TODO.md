@@ -1,3 +1,7 @@
-setup langs/
+config-markdown
+config-scheme
+config-lisp
+config-c
+config-python
 
-remove init-emacs.org
+remove todo.org

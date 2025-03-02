@@ -1,5 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src/")
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/configs/")
+(add-to-list 'load-path "~/.emacs.d/dot-emacs/configs/langs")
 
 (load "config-m-x")
 (load "config-keys")
