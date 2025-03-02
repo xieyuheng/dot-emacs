@@ -1,4 +1,3 @@
-config-clojure
 config-shen
 config-cicada
 
