@@ -41,3 +41,4 @@
 (load "config-scala")
 (load "config-cicada")
 (load "config-go")
+(load "config-rust")

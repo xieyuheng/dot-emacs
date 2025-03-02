@@ -1,4 +1,3 @@
-config-rust
 config-lua
 
 config-agda
