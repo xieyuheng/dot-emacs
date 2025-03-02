@@ -742,9 +742,3 @@
    (require 'yaml-mode)
    (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
    #+end_src
-
-* emacs server
-
-#+begin_src emacs-lisp :tangle ~/.emacs
-
-#+end_src
