@@ -7,19 +7,6 @@
    (setq rust-indent-offset 4)
    #+end_src
 
-** go
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (add-to-list 'load-path "~/.emacs.d/go-mode/")
-   (require 'go-mode)
-
-   (add-hook
-    'go-mode-hook
-    (lambda ()
-      (setq tab-width 4)
-      (setq indent-tabs-mode nil)))
-   #+end_src
-
 ** forth
 
    #+begin_src emacs-lisp :tangle ~/.emacs

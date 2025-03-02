@@ -1,4 +1,3 @@
-config-go
 config-rust
 config-lua
 

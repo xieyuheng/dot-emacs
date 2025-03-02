@@ -40,3 +40,4 @@
 (load "config-python")
 (load "config-scala")
 (load "config-cicada")
+(load "config-go")
