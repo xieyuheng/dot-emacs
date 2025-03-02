@@ -1,6 +1,5 @@
-(add-to-list 'load-path "~/.emacs.d/edit-sexp/")
-
 ;;;; mark and cruise
+
 ;; the follow functions are belong to lisp.el
 
 ;; (global-set-key (kbd "s-z") 'mark-defun)

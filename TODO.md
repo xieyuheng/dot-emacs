@@ -1,5 +1,3 @@
-move edit-sexp to modules
-
 # langs
 
 config-scheme
