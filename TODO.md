@@ -1,4 +1,3 @@
-config-region-state
 config-emacs-server
 config-projectile
 config-x-clipboard-yank

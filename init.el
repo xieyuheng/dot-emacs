@@ -10,3 +10,4 @@
 (load "config-initial-buffer")
 (load "config-eshell")
 (load "config-ranger")
+(load "config-region-state")
