@@ -47,3 +47,5 @@
 
 (load "config-forth")
 (load "config-uxn")
+
+(load "config-sml")
