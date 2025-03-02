@@ -33,3 +33,4 @@
 (load "config-cicada")
 (load "config-typescript")
 (load "config-web")
+(load "config-yaml")
