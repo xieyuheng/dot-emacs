@@ -3,7 +3,7 @@
 
 (load "config-m-x")
 (load "config-global-keys")
-(load "config-general-settings")
+(load "config-settings")
 (load "config-hippie-expand")
 (load "config-theme")
 (load "config-fonts")

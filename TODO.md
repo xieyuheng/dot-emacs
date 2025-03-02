@@ -1,4 +1,3 @@
-rename config-general-settings to config-settings
 rename config-global-keys to config-keys
 
 more settings
