@@ -1,9 +1,7 @@
-config-julia
+config-forth
+config-uxn
 
 config-agda
 config-ocaml
-
-config-forth
-config-uxn
 
 remove todo.org
