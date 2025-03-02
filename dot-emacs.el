@@ -26,3 +26,4 @@
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src/langs")
 
 (load "config-markdown")
+(load "config-scheme")

@@ -1,6 +1,5 @@
 # langs
 
-config-scheme
 config-lisp
 config-c
 config-python
