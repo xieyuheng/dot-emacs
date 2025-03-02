@@ -1,5 +1,0 @@
-** agda
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-
-   #+end_src
