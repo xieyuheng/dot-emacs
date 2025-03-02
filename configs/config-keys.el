@@ -1,7 +1,7 @@
 ;;;; change-parentheses
 
-(add-to-list 'load-path "~/.emacs.d/xyhlib/")
-(require 'xyhlib)
+(add-to-list 'load-path "~/.emacs.d/change-parentheses/")
+(require 'change-parentheses)
 (global-set-key (kbd "M-[") 'change-parentheses)
 
 ;;;; <C-f1> <C-f2>
