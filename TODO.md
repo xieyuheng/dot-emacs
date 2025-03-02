@@ -1,6 +1,5 @@
 config-go
 config-rust
-config-python
 config-lua
 
 config-agda

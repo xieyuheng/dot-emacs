@@ -37,5 +37,6 @@
 (load "config-yaml")
 
 (load "config-c")
+(load "config-python")
 (load "config-scala")
 (load "config-cicada")
