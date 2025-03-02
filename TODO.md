@@ -1,6 +1,10 @@
-config-emacs-server
+rename config-general-settings to config-settings
+rename config-global-keys to config-keys
+
+more settings
 config-projectile
-config-x-clipboard-yank
+
+config-emacs-server
 
 rename xyhlib.el
 

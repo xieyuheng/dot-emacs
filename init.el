@@ -11,3 +11,4 @@
 (load "config-eshell")
 (load "config-ranger")
 (load "config-region-state")
+(load "config-x-clipboard-yank")

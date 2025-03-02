@@ -745,18 +745,6 @@
 
 * app
 
-** primary-clipboard-yank
-
-x-clipboard-yank
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (defun primary-clipboard-yank ()
-     (interactive)
-     (insert (eshell-command-result "xclip -o")))
-
-   (global-set-key (kbd "C-M-y") 'primary-clipboard-yank)
-   #+end_src
-
 ** gc-cons-threshold
 
    #+begin_src emacs-lisp :tangle ~/.emacs
