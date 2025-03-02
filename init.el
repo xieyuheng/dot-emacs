@@ -2,7 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/configs/")
 
 (load "config-m-x")
-(load "config-global-keys")
+(load "config-keys")
 (load "config-settings")
 (load "config-hippie-expand")
 (load "config-theme")

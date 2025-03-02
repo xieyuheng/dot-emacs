@@ -1,5 +1,3 @@
-rename config-global-keys to config-keys
-
 more settings
 config-projectile
 
