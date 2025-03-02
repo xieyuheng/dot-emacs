@@ -746,9 +746,5 @@
 * emacs server
 
 #+begin_src emacs-lisp :tangle ~/.emacs
-(require 'server)
-(when (not (server-running-p)) (server-start))
 
-;; (server-start)
-;; (server-force-delete)
 #+end_src

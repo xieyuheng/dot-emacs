@@ -1,5 +1,3 @@
-config-emacs-server
-
 rename xyhlib.el
 
 setup langs/
