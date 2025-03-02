@@ -26,12 +26,16 @@
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src/langs")
 
 (load "config-markdown")
+
 (load "config-scheme")
 (load "config-lisp")
 (load "config-racket")
 (load "config-clojure")
-(load "config-cicada")
+
 (load "config-typescript")
 (load "config-web")
 (load "config-yaml")
+
 (load "config-c")
+(load "config-scala")
+(load "config-cicada")

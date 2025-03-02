@@ -28,6 +28,7 @@
    #+end_src
 
 ** forth
+
    #+begin_src emacs-lisp :tangle ~/.emacs
    (add-to-list 'load-path "~/.emacs.d/forth-mode/")
 
@@ -95,25 +96,6 @@
       (turn-off-indent)))
    #+end_src
 
-** c
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (setq c-basic-offset 4)
-   (setq c-default-style "k&r")
-
-   ;; (setq c-default-style "stroustrup")
-   ;; (setq c-default-style "whitesmith")
-   ;; (setq c-default-style "ellemtel")
-   ;; (setq c-default-style "linux")
-
-   (add-hook
-    'c-mode-hook
-    (lambda ()
-      ;; (setq comment-style 'extra)
-      (setq comment-start "//")
-      (setq comment-end "")))
-   #+end_src
-
 ** uxn
 
    #+begin_src emacs-lisp :tangle ~/.emacs
@@ -123,13 +105,6 @@
 
    ;; then load uxntal-mode
    (require 'uxntal-mode)
-   #+end_src
-
-** scala
-
-   #+begin_src emacs-lisp :tangle ~/.emacs
-   (add-to-list 'load-path "~/.emacs.d/emacs-scala-mode/")
-   (require 'scala-mode)
    #+end_src
 
 ** lua
