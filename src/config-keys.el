@@ -117,26 +117,15 @@
 
 ;;;; whitespace
 
-(global-set-key
- (kbd "C-M-w")
- (lambda ()
-   (interactive)
-   (message "* (whitespace-cleanup)")
-   (whitespace-cleanup)))
-
-(global-set-key
- (kbd "M-W")
- (lambda ()
-   (interactive)
-   (message "* (whitespace-cleanup)")
-   (whitespace-cleanup)))
-
-;; 有了下面的設置 每次 C-x C-s 時 就會自動清除 whitespace
-;; automatically clean up bad whitespace
-;; (setq whitespace-action '(auto-cleanup))
+(global-set-key (kbd "C-M-w")
+                (lambda ()
+                  (interactive)
+                  (message "* (whitespace-cleanup)")
+                  (whitespace-cleanup)))
 
 ;; only show bad whitespace
-(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
+(setq whitespace-style
+      '(trailing space-before-tab indentation empty space-after-tab))
 
 (whitespace-mode t)
 (global-whitespace-mode t)
