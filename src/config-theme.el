@@ -2,6 +2,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/theme/molokai-theme/")
 (load-theme 'molokai t)
+
 (add-to-list 'load-path "~/.emacs.d/theme/molokai-theme/")
 (require 'molokai-theme-kit)
 
