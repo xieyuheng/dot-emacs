@@ -1,8 +1,33 @@
+;;;; hippie-expand
+
+(global-set-key (kbd "C-h") 'hippie-expand)
+
+(setq hippie-expand-try-functions-list
+      '(try-expand-dabbrev
+        try-expand-dabbrev-visible
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-expand-all-abbrevs
+        try-expand-list
+        try-expand-line
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol))
+
 ;;;; change-parentheses
 
 (add-to-list 'load-path "~/.emacs.d/change-parentheses/")
 (require 'change-parentheses)
 (global-set-key (kbd "M-[") 'change-parentheses)
+
+;;;; x-clipboard-yank
+
+(defun x-clipboard-yank ()
+  (interactive)
+  (insert (eshell-command-result "xclip -o")))
+
+(global-set-key (kbd "C-M-y") 'x-clipboard-yank)
 
 ;;;; <C-f1> <C-f2>
 
@@ -132,7 +157,7 @@
              [mouse-7] [down-mouse-7] [M-down-mouse-7] [C-down-mouse-7] [drag-mouse-7] [double-mouse-7] [triple-mouse-7] [M-drag-mouse-7]))
   (global-set-key k (lambda () (interactive))))
 
-;; search
+;;;; search
 
 (global-set-key (kbd "C-t") 'isearch-forward)
 

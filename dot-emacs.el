@@ -2,22 +2,28 @@
 
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src/modules")
 
-;;;; configs
+;;;; configs (no extra dependency)
 
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src")
 
-(load "config-m-x")
 (load "config-keys")
 (load "config-settings")
-(load "config-hippie-expand")
-(load "config-theme")
 (load "config-fonts")
 (load "config-initial-buffer")
+(load "config-emacs-server")
 (load "config-eshell")
+
+;;;; theme
+
+(load "config-theme")
+
+;;;; packages
+
+(add-to-list 'load-path "~/.emacs.d/dot-emacs/src/packages")
+
+(load "config-smex")
 (load "config-ranger")
 (load "config-region-state")
-(load "config-x-clipboard-yank")
-(load "config-emacs-server")
 (load "config-paredit")
 
 ;;;; langs
