@@ -1,10 +1,10 @@
 (add-to-list 'load-path "~/.emacs.d/paredit")
 (require 'paredit)
 
-(define-globalized-minor-mode global-paredit-mode paredit-mode
-  (lambda () (paredit-mode 1)))
-
-(global-paredit-mode 1)
+(add-hook 'text-mode-hook 'enable-paredit-mode)
+(add-hook 'prog-mode-hook 'enable-paredit-mode)
+(add-hook 'conf-mode-hook 'enable-paredit-mode)
+(add-hook 'dired-mode-hook 'enable-paredit-mode)
 
 ;; my usage of the keys
 
