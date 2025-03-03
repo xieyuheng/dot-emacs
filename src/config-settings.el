@@ -54,10 +54,14 @@
 
 (setq x-gtk-use-native-input t)
 
-;;;; default window size
+;;;; fix frame-alist
 
-(setq default-frame-alist '((fullscreen . maximized)))
-(setq initial-frame-alist '((fullscreen . maximized)))
+(defvar my-frame-alist
+  '((fullscreen . maximized)
+    (vertical-scroll-bars . nil)))
+
+(setq default-frame-alist my-frame-alist)
+(setq initial-frame-alist my-frame-alist)
 
 ;;;; cursor
 
