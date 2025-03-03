@@ -8,7 +8,6 @@
         try-expand-all-abbrevs
         try-expand-list
         try-expand-line
-        ;; pcomplete
         try-complete-file-name-partially
         try-complete-file-name
         try-complete-lisp-symbol-partially
