@@ -4,6 +4,12 @@
 (global-set-key (kbd "C-s C-w") 'ranger)
 
 (add-hook
+ 'dired-mode-hook
+ (lambda ()
+   (local-set-key (kbd "C-n") 'ranger-next-file)
+   (local-set-key (kbd "C-p") 'ranger-prev-file)))
+
+(add-hook
  'ranger-mode-hook
  (lambda ()
    (local-set-key (kbd "C-s C-w") 'other-window)
