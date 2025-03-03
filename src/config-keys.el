@@ -123,13 +123,6 @@
                   (message "* (whitespace-cleanup)")
                   (whitespace-cleanup)))
 
-;; only show bad whitespace
-(setq whitespace-style
-      '(trailing space-before-tab indentation empty space-after-tab))
-
-(whitespace-mode t)
-(global-whitespace-mode t)
-
 ;;;; save-buffer
 
 (global-set-key (kbd "C-x C-s") (lambda () (interactive) (save-buffer) (redraw-display)))

@@ -110,3 +110,11 @@
 (require 'uniquify)
 ;; (setq uniquify-buffer-name-style 'reverse)
 (setq uniquify-buffer-name-style 'forward)
+
+;;;; whitespace
+
+(setq whitespace-style
+      '(trailing space-before-tab indentation empty space-after-tab))
+
+(whitespace-modet)
+(global-whitespace-mode t)
