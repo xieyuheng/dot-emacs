@@ -4,7 +4,6 @@
 (add-hook 'text-mode-hook 'enable-paredit-mode)
 (add-hook 'prog-mode-hook 'enable-paredit-mode)
 (add-hook 'conf-mode-hook 'enable-paredit-mode)
-(add-hook 'dired-mode-hook 'enable-paredit-mode)
 
 ;; my usage of the keys
 
