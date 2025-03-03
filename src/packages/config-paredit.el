@@ -4,6 +4,7 @@
 (add-hook 'text-mode-hook 'enable-paredit-mode)
 (add-hook 'prog-mode-hook 'enable-paredit-mode)
 (add-hook 'conf-mode-hook 'enable-paredit-mode)
+(add-hook 'dired-mode-hook 'enable-paredit-mode)
 
 ;; my usage of the keys
 
@@ -16,16 +17,20 @@
 (define-key paredit-mode-map (kbd "<C-M-right>")  'paredit-backward-barf-sexp)
 (define-key paredit-mode-map (kbd "<C-M-left>")   'paredit-backward-slurp-sexp)
 
-;; unbind keys
-
-(define-key paredit-mode-map (kbd "C-M-u") nil)
-(define-key paredit-mode-map (kbd "C-M-d") nil)
-(define-key paredit-mode-map (kbd "C-M-p") nil)
-(define-key paredit-mode-map (kbd "C-M-n") nil)
-
 ;; the follow functions are from lisp.el
 
 (define-key paredit-mode-map (kbd "M-a") 'mark-sexp)
 (define-key paredit-mode-map (kbd "M-e") 'backward-sexp)
 (define-key paredit-mode-map (kbd "M-s") 'forward-sexp)
 (define-key paredit-mode-map (kbd "M-q") 'backward-up-list)
+
+;; unbind keys
+
+(eval-after-load "paredit"
+  '(progn
+     (define-key paredit-mode-map (kbd "C-j") nil)
+     (define-key paredit-mode-map (kbd "<RET>") nil)
+     (define-key paredit-mode-map (kbd "C-M-u") nil)
+     (define-key paredit-mode-map (kbd "C-M-d") nil)
+     (define-key paredit-mode-map (kbd "C-M-p") nil)
+     (define-key paredit-mode-map (kbd "C-M-n") nil)))
