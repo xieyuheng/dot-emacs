@@ -1,4 +1,4 @@
-# My emacs config file
+# My ~/.emacs file
 
 > I suppose you could call that a personality.
 > Each machine has its own, unique personality
