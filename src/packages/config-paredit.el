@@ -1,10 +1,20 @@
+;; the follow functions are from lisp.el
+
+(global-set-key (kbd "M-a") 'mark-sexp)
+(global-set-key (kbd "M-e") 'backward-sexp)
+(global-set-key (kbd "M-s") 'forward-sexp)
+(global-set-key (kbd "M-q") 'backward-up-list)
+
 (add-to-list 'load-path "~/.emacs.d/paredit")
 (require 'paredit)
 
-(add-hook 'text-mode-hook 'enable-paredit-mode)
-(add-hook 'prog-mode-hook 'enable-paredit-mode)
-(add-hook 'conf-mode-hook 'enable-paredit-mode)
-(add-hook 'dired-mode-hook 'enable-paredit-mode)
+(add-hook 'scheme-mode-hook      'enable-paredit-mode)
+(add-hook 'racket-mode-hook      'enable-paredit-mode)
+(add-hook 'lisp-mode-hook        'enable-paredit-mode)
+(add-hook 'shen-mode-hook        'enable-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook  'enable-paredit-mode)
+(add-hook 'markdown-mode-hook    'enable-paredit-mode)
+(add-hook 'ranger-mode-hook      'enable-paredit-mode)
 
 ;; my usage of the keys
 
@@ -16,13 +26,6 @@
 (define-key paredit-mode-map (kbd "M-\"")         'paredit-meta-doublequote)
 (define-key paredit-mode-map (kbd "<C-M-right>")  'paredit-backward-barf-sexp)
 (define-key paredit-mode-map (kbd "<C-M-left>")   'paredit-backward-slurp-sexp)
-
-;; the follow functions are from lisp.el
-
-(define-key paredit-mode-map (kbd "M-a") 'mark-sexp)
-(define-key paredit-mode-map (kbd "M-e") 'backward-sexp)
-(define-key paredit-mode-map (kbd "M-s") 'forward-sexp)
-(define-key paredit-mode-map (kbd "M-q") 'backward-up-list)
 
 ;; unbind keys
 
