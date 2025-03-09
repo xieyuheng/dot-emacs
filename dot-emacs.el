@@ -1,3 +1,5 @@
+;; (setq gc-cons-threshold most-positive-fixnum)
+
 ;;;; modules
 
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src/modules")
@@ -55,3 +57,7 @@
 (load "config-sml")
 (load "config-caml")
 (load "config-agda")
+
+;; (setq gc-cons-threshold (* 100 1024 1024)) ;; 100 MB
+
+(garbage-collect)
