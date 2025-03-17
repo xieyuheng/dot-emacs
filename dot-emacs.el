@@ -51,7 +51,6 @@
 (load "config-lua")
 (load "config-julia")
 
-(load "config-forth")
 (load "config-uxn")
 
 (load "config-sml")
