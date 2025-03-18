@@ -1,6 +1,13 @@
 (add-to-list 'load-path "~/.emacs.d/paredit")
 (require 'paredit)
 
+;; do not insert space before (),
+;; so that we can use paredit in c-mode.
+;; for example f().
+(defun my-space-for-delimiter-p (endp delimiter) nil)
+(setq paredit-space-for-delimiter-predicates
+      (list 'my-space-for-delimiter-p))
+
 (add-hook 'scheme-mode-hook      'enable-paredit-mode)
 (add-hook 'racket-mode-hook      'enable-paredit-mode)
 (add-hook 'lisp-mode-hook        'enable-paredit-mode)
@@ -8,8 +15,18 @@
 (add-hook 'emacs-lisp-mode-hook  'enable-paredit-mode)
 (add-hook 'markdown-mode-hook    'enable-paredit-mode)
 (add-hook 'ranger-mode-hook      'enable-paredit-mode)
+(add-hook 'c-mode-hook           'enable-paredit-mode)
 
 ;; my usage of the keys
+
+(eval-after-load 'paredit
+  '(progn
+     (define-key paredit-mode-map (kbd "C-j") nil)
+     (define-key paredit-mode-map (kbd "<RET>") nil)
+     (define-key paredit-mode-map (kbd "C-M-u") nil)
+     (define-key paredit-mode-map (kbd "C-M-d") nil)
+     (define-key paredit-mode-map (kbd "C-M-p") nil)
+     (define-key paredit-mode-map (kbd "C-M-n") nil)))
 
 (define-key paredit-mode-map (kbd "C-M-9")        'paredit-wrap-round)
 (define-key paredit-mode-map (kbd "M-c")          'paredit-splice-sexp)
@@ -31,14 +48,3 @@
 (define-key paredit-mode-map (kbd "M-e") 'backward-sexp)
 (define-key paredit-mode-map (kbd "M-s") 'forward-sexp)
 (define-key paredit-mode-map (kbd "M-q") 'backward-up-list)
-
-;; unbind keys
-
-(eval-after-load "paredit"
-  '(progn
-     (define-key paredit-mode-map (kbd "C-j") nil)
-     (define-key paredit-mode-map (kbd "<RET>") nil)
-     (define-key paredit-mode-map (kbd "C-M-u") nil)
-     (define-key paredit-mode-map (kbd "C-M-d") nil)
-     (define-key paredit-mode-map (kbd "C-M-p") nil)
-     (define-key paredit-mode-map (kbd "C-M-n") nil)))
