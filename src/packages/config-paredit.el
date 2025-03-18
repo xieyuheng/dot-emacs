@@ -8,14 +8,9 @@
 (setq paredit-space-for-delimiter-predicates
       (list 'my-space-for-delimiter-p))
 
-(add-hook 'scheme-mode-hook      'enable-paredit-mode)
-(add-hook 'racket-mode-hook      'enable-paredit-mode)
-(add-hook 'lisp-mode-hook        'enable-paredit-mode)
-(add-hook 'shen-mode-hook        'enable-paredit-mode)
-(add-hook 'emacs-lisp-mode-hook  'enable-paredit-mode)
+(add-hook 'prog-mode-hook        'enable-paredit-mode)
 (add-hook 'markdown-mode-hook    'enable-paredit-mode)
 (add-hook 'ranger-mode-hook      'enable-paredit-mode)
-(add-hook 'c-mode-hook           'enable-paredit-mode)
 
 ;; my usage of the keys
 
