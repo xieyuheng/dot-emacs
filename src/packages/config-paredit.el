@@ -21,7 +21,8 @@
      (define-key paredit-mode-map (kbd "C-M-u") nil)
      (define-key paredit-mode-map (kbd "C-M-d") nil)
      (define-key paredit-mode-map (kbd "C-M-p") nil)
-     (define-key paredit-mode-map (kbd "C-M-n") nil)))
+     (define-key paredit-mode-map (kbd "C-M-n") nil)
+     (define-key paredit-mode-map (kbd ";") nil)))
 
 (define-key paredit-mode-map (kbd "C-M-9")        'paredit-wrap-round)
 (define-key paredit-mode-map (kbd "M-c")          'paredit-splice-sexp)
