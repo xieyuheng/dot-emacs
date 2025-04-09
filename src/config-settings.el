@@ -50,6 +50,8 @@
 (setq auto-save-default nil)
 (setq auto-save-timeout 100000000000000)
 
+(setq create-lockfiles nil)
+
 ;;;; input method
 
 (setq x-gtk-use-native-input t)
