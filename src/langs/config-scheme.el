@@ -205,6 +205,7 @@
    (0 . >=)
 
    (1 . define-type)
+   (1 . define-record)
    (1 . define-data)
    (3 . datatype)
    (3 . define-datatype)
