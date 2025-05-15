@@ -260,8 +260,6 @@
    (1 . induction)
    (1 . recursion)
 
-   (1 . in)
-   (1 . out)
    (1 . is)
    (0 . choice)
    ))
