@@ -264,4 +264,7 @@
    (0 . choice)
    (0 . do)
    (1 . given)
+   (1 . nu)
+   (1 . mu)
+   (1 . fresh-type)
    ))
