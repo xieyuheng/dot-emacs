@@ -207,8 +207,8 @@
    (1 . define-type)
    (1 . define-record)
    (1 . define-data)
-   (3 . datatype)
-   (1 . define-datatype)
+   (2 . datatype)
+   (2 . define-datatype)
    (1 . define-function)
 
    (1 . map!)
