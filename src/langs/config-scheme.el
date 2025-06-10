@@ -241,6 +241,7 @@
    (1 . =)
    (1 . the)
    (1 . check-same)
+   (1 . check)
    (1 . claim)
    (1 . pi)
    (1 . pi*)
