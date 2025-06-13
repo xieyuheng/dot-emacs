@@ -274,4 +274,7 @@
    (0 . union)
    (0 . intersection)
    (1 . fresh-type)
+   (0 . gon)
+   (0 . hedron)
+   (0 . choron)
    ))
