@@ -277,4 +277,5 @@
    (0 . gon)
    (0 . hedron)
    (0 . choron)
+   (1 . define-space)
    ))
