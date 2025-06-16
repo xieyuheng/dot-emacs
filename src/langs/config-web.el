@@ -52,3 +52,7 @@
 (require 'wat-mode)
 (add-to-list 'auto-mode-alist '("\\.wat\\'" . wat-mode))
 (add-to-list 'auto-mode-alist '("\\.wast\\'" . wat-mode))
+
+;;;; json
+
+(add-to-list 'auto-mode-alist '("\\.json\\'" . js-mode))
