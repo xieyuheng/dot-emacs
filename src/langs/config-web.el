@@ -53,6 +53,13 @@
 (add-to-list 'auto-mode-alist '("\\.wat\\'" . wat-mode))
 (add-to-list 'auto-mode-alist '("\\.wast\\'" . wat-mode))
 
+;; js
+
+(add-hook
+ 'js-mode-hook
+ (lambda ()
+   (setq js-indent-level 2)))
+
 ;;;; json
 
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js-mode))
