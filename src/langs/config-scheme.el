@@ -270,6 +270,7 @@
    (1 . nu)
    (1 . mu)
    (0 . tau)
+   (0 . tau*)
    (0 . struct)
    (0 . union)
    (0 . intersection)
