@@ -107,8 +107,8 @@
 ;; (global-set-key (kbd "<prior>") (lambda () (interactive) (scroll-left 1 1)))
 ;; (global-set-key (kbd "<next>") (lambda () (interactive) (scroll-left -1 1)))
 
-(global-set-key (kbd "<prior>") (lambda () (interactive) (scroll-down 7)))
-(global-set-key (kbd "<next>") (lambda () (interactive) (scroll-up 7)))
+(global-set-key (kbd "<prior>") (lambda () (interactive) (scroll-down 1)))
+(global-set-key (kbd "<next>") (lambda () (interactive) (scroll-up 1)))
 
 (setq hscroll-step 1)
 (setq hscroll-margin 6)
