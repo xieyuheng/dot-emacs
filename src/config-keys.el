@@ -104,11 +104,11 @@
 
 ;;;; view
 
-(defun scroll-right-as-my-wish () (interactive) (scroll-left -1 1))
-(defun scroll-left-as-my-wish () (interactive) (scroll-left 1 1))
+;; (global-set-key (kbd "<prior>") (lambda () (interactive) (scroll-left 1 1)))
+;; (global-set-key (kbd "<next>") (lambda () (interactive) (scroll-left -1 1)))
 
-(global-set-key (kbd "<prior>") 'scroll-right-as-my-wish)
-(global-set-key (kbd "<next>") 'scroll-left-as-my-wish)
+(global-set-key (kbd "<prior>") 'scroll-down)
+(global-set-key (kbd "<next>") 'scroll-up)
 
 (setq hscroll-step 1)
 (setq hscroll-margin 6)
