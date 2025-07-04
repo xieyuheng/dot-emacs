@@ -1,6 +1,7 @@
 ;;;; title
 
-(setq frame-title-format "%f")
+(setq frame-title-format
+      '(:eval (or (buffer-file-name) (buffer-name))))
 
 ;;;; no distraction
 
