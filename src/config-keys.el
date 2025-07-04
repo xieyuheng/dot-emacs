@@ -76,10 +76,10 @@
 
 ;;;; window resizing
 
-(global-set-key (kbd "C-M-h") 'shrink-window-horizontally)
-(global-set-key (kbd "C-M-l") 'enlarge-window-horizontally)
-(global-set-key (kbd "C-M-j") 'shrink-window)
-(global-set-key (kbd "C-M-k") 'enlarge-window)
+;; (global-set-key (kbd "C-M-h") 'shrink-window-horizontally)
+;; (global-set-key (kbd "C-M-l") 'enlarge-window-horizontally)
+;; (global-set-key (kbd "C-M-j") 'shrink-window)
+;; (global-set-key (kbd "C-M-k") 'enlarge-window)
 
 ;;;; line wrap
 
