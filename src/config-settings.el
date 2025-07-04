@@ -1,6 +1,6 @@
 ;;;; title
 
-(setq frame-title-format "%b")
+(setq frame-title-format "%f")
 
 ;;;; no distraction
 
