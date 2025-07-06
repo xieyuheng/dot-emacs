@@ -238,7 +238,7 @@
 
    (2 . ind-Vec)
 
-   (1 . =)
+   (0 . =)
    (1 . the)
    (1 . check-same)
    (1 . check)
