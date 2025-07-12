@@ -1,3 +1,12 @@
+;;;; save
+
+(defun save-buffer-quiet ()
+  (interactive)
+  (basic-save-buffer nil))
+
+(global-set-key (kbd "C-x C-s") 'save-buffer-quiet)
+(global-set-key (kbd "C-x s") 'save-buffer-quiet)
+
 ;;;; clone-frame
 
 (global-set-key (kbd "C-c C-c") 'clone-frame)

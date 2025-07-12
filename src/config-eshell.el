@@ -1,12 +1,14 @@
-(defun switch-to-eshell ()
+(defun open-new-eshell-in-current-dir ()
   (interactive)
-  (eshell))
+  (eshell t)
+  (cd default-directory))
 
-(global-set-key (kbd "C-s C-e") 'switch-to-eshell)
+(global-set-key (kbd "C-s C-e") 'open-new-eshell-in-current-dir)
 
-(add-hook 'eshell-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-s C-e") 'previous-buffer)))
+(add-hook
+ 'eshell-mode-hook
+ (lambda ()
+   (local-set-key (kbd "C-s C-e") 'previous-buffer)))
 
 (defun eshell/ll (&rest args)
   (apply #'eshell/ls (cons "-l" args)))
