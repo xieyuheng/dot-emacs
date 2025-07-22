@@ -263,6 +263,9 @@
    (0 . assert-same)
    (0 . assert-not-same)
 
+   (0 . assert-subtype)
+   (0 . assert-not-subtype)   
+
    (1 . induction)
    (1 . recursion)
 
