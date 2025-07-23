@@ -24,7 +24,8 @@
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src/packages")
 
 (load "config-smex")
-(load "config-ranger")
+;; (load "config-ranger")
+(load "config-neotree")
 (load "config-region-state")
 (load "config-paredit")
 
