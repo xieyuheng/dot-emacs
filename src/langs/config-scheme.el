@@ -264,7 +264,7 @@
    (0 . assert-not-same)
 
    (0 . assert-subtype)
-   (0 . assert-not-subtype)   
+   (0 . assert-not-subtype)
 
    (1 . induction)
    (1 . recursion)
@@ -280,7 +280,7 @@
    (0 . tael)
    (0 . struct)
    (0 . union)
-   (0 . intersection)
+   (0 . inter)
    (1 . fresh-type)
    (0 . gon)
    (0 . path)
