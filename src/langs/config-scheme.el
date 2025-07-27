@@ -260,6 +260,9 @@
    (0 . assert-equal)
    (0 . assert-not-equal)
 
+   (0 . assert-type-equal)
+   (0 . assert-not-type-equal)
+
    (0 . assert-same)
    (0 . assert-not-same)
 
