@@ -171,7 +171,8 @@
    (1 . type)
    (3 . data)
    (3 . codata)
-   (0 . import)
+   (1 . import)
+   (1 . require)
    (0 . example)
    (0 . effect)
 
