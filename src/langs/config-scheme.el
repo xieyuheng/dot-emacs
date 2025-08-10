@@ -273,6 +273,7 @@
    (1 . induction)
    (1 . recursion)
 
+   (0 . thunk)
    (1 . is)
    (0 . choice)
    (0 . do)
