@@ -108,7 +108,6 @@
    (0 . assign)
    (0 . lend)
    (0 . connect)
-   (0 . assert)
 
    ;; the little prover
    (2 . dethm)
@@ -262,6 +261,9 @@
    (1 . cong)
    (1 . replace)
    (1 . implicit)
+
+   (0 . assert)
+   (0 . assert-not)
 
    (0 . assert-equal)
    (0 . assert-not-equal)
