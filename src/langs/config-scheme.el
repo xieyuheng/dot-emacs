@@ -281,6 +281,7 @@
    (1 . recursion)
 
    (0 . thunk)
+   (0 . lazy)
    (1 . is)
    (1 . pipe)
    (0 . compose)
