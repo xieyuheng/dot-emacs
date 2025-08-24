@@ -282,6 +282,8 @@
 
    (0 . thunk)
    (1 . is)
+   (1 . pipe)
+   (0 . compose)
    (0 . choice)
    (0 . do)
    (1 . given)
