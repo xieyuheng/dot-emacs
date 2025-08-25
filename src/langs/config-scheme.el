@@ -151,6 +151,7 @@
    (1 . case-inf)
 
    (1 . define-primitive)
+   (1 . define-lazy)
 
    (1 . class)
    (2 . class*)
@@ -282,6 +283,7 @@
 
    (0 . thunk)
    (0 . lazy)
+   (1 . lambda-lazy)
    (1 . is)
    (1 . pipe)
    (0 . compose)
