@@ -177,6 +177,7 @@
    (1 . include)
    (1 . include-only)
    (1 . include-except)
+   (1 . include-as)
    (1 . require)
    (0 . example)
    (0 . effect)
