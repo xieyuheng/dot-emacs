@@ -288,6 +288,7 @@
    (0 . lazy)
    (1 . lambda-lazy)
    (1 . is)
+   (1 . eval)
    (1 . pipe)
    (0 . compose)
    (0 . choice)
