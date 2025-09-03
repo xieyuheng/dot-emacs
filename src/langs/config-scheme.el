@@ -171,6 +171,7 @@
    (1 . type)
    (3 . data)
    (3 . codata)
+   (0 . export)
    (1 . import)
    (1 . import-only)
    (1 . import-all)
