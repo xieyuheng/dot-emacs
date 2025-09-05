@@ -303,6 +303,7 @@
    (0 . struct)
    (0 . union)
    (0 . inter)
+   (0 . enum)
    (1 . fresh-type)
    (0 . gon)
    (0 . path)
