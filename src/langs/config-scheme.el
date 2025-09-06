@@ -282,6 +282,8 @@
    (0 . assert-subtype)
    (0 . assert-not-subtype)
 
+   (0 . assert-the)
+   
    (1 . induction)
    (1 . recursion)
 
