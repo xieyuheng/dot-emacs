@@ -123,6 +123,7 @@
    (1 . quote)
    (1 . quasiquote)
    (1 . unquote)
+   (1 . escape)   
    (1 . if)
    (1 . apply)
    (1 . letrec*)
