@@ -52,6 +52,7 @@
 (load "config-julia")
 
 (load "config-uxn")
+(load "config-asm")
 
 (load "config-sml")
 (load "config-caml")
