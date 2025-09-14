@@ -115,6 +115,9 @@
    (1 . J-Bob/prove)
    (1 . J-Bob/define)
 
+   (0 . put)
+   (0 . put!)
+
    ;; 下面 scheme 中需要高亮的词
    (0 . set!)
    (0 . set-car!)
@@ -123,7 +126,7 @@
    (1 . quote)
    (1 . quasiquote)
    (1 . unquote)
-   (1 . escape)   
+   (1 . escape)
    (1 . if)
    (1 . apply)
    (1 . letrec*)
@@ -284,7 +287,7 @@
    (0 . assert-not-subtype)
 
    (0 . assert-the)
-   
+
    (1 . induction)
    (1 . recursion)
 
