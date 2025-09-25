@@ -330,5 +330,6 @@
    (0 . @list)
    (0 . @record)
    (0 . @set)
+   (0 . @hash)
    (1 . @pattern)
    (1 . @escape)))
