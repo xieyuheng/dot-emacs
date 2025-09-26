@@ -332,4 +332,6 @@
    (0 . @set)
    (0 . @hash)
    (1 . @pattern)
-   (1 . @escape)))
+   (1 . @escape)
+   (1 . polymorphic)
+   (1 . specific)))
