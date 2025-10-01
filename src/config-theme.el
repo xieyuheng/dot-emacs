@@ -6,6 +6,11 @@
 (add-to-list 'load-path "~/.emacs.d/theme/molokai-theme/")
 (require 'molokai-theme-kit)
 
+;;;; github dark
+
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/theme/github-dark-vscode-emacs-theme/")
+;; (load-theme 'github-dark-vscode t)
+
 ;;;; zenburn
 
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/theme/zenburn-emacs/")
