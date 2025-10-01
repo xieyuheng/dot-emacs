@@ -18,8 +18,11 @@
 ;; 1lJL qp QP o0O 8B 08
 ;; ,.  `'
 ;; <: :>
+;; <| |>
 ;; |- |--
 ;; <- ->
+;; <= =>
+;; <~ ~>
 ;; |- |--
 ;; |- |--
 
@@ -63,12 +66,12 @@
 ;; (set-face-attribute 'default nil :family "Terminus (TTF)" :height 190)
 ;; (set-face-attribute 'default nil :family "xos4 Terminus" :height 200)
 ;; (set-face-attribute 'default nil :family "PragmataPro Mono" :height 200)
-;; (set-face-attribute 'default nil :family "monofur" :height 160)
+;; (set-face-attribute 'default nil :family "monofur" :height 170)
 ;; (set-face-attribute 'default nil :family "Monofur Nerd Font" :height 160)
 ;; (set-face-attribute 'default nil :family "monaco" :height 155)
 ;; (set-face-attribute 'default nil :family "Fixedsys Excelsior 3.01" :height 190)
-;; (set-face-attribute 'default nil :family "Fira Code" :height 150)
-;; (set-face-attribute 'default nil :family "Fira Mono" :height 190)
+;; (set-face-attribute 'default nil :family "Fira Code" :height 165)
+;; (set-face-attribute 'default nil :family "Fira Mono" :height 165)
 ;; (set-face-attribute 'default nil :family "Sarasa Mono SC" :height 190)
 ;; (set-face-attribute 'default nil :family "Source Code Pro" :height 180)
 ;; (set-face-attribute 'default nil :family "mononoki" :height 180)

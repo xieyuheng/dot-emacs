@@ -297,6 +297,8 @@
    (1 . is)
    (1 . eval)
    (1 . pipe)
+   (1 . >>)
+   (0 . ->)
    (0 . compose)
    (0 . choice)
    (0 . do)
