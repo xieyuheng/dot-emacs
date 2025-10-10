@@ -300,7 +300,7 @@
    (1 . pipe)
    (0 . >>)
    (0 . ->)
-   (0 . *->)   
+   (0 . *->)
    (0 . compose)
    (0 . choice)
    (0 . do)
@@ -328,6 +328,7 @@
    (1 . define-space)
 
    (1 . @quote)
+   (0 . @comment)
    (1 . @unquote)
    (1 . @quasiquote)
    (0 . @tael)
