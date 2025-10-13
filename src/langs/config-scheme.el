@@ -338,5 +338,18 @@
    (0 . @hash)
    (1 . @pattern)
    (1 . @escape)
+
+   (1 . quote)
+   (0 . comment)
+   (1 . unquote)
+   (1 . quasiquote)
+   (0 . tael)
+   (0 . list)
+   (0 . record)
+   (0 . set)
+   (0 . hash)
+   (1 . pattern)
+   (1 . escape)
+
    (1 . polymorphic)
    (1 . specific)))
