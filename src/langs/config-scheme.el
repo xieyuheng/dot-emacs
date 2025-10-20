@@ -355,4 +355,5 @@
    (1 . specific)
 
    (1 . module)
-   (1 . label)))
+   (1 . label)
+   (1 . block)))
