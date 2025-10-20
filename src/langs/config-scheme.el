@@ -352,4 +352,7 @@
    (1 . escape)
 
    (1 . polymorphic)
-   (1 . specific)))
+   (1 . specific)
+
+   (1 . module)
+   (1 . label)))
