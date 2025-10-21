@@ -356,4 +356,7 @@
 
    (1 . module)
    (1 . label)
-   (1 . block)))
+   (1 . block)
+   (1 . return)
+   (1 . goto)
+   (1 . branch)))
