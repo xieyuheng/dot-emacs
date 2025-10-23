@@ -359,4 +359,7 @@
    (1 . block)
    (1 . return)
    (1 . goto)
-   (1 . branch)))
+   (1 . branch)
+
+   (1 . propagator)
+   (1 . define-propagator)))
