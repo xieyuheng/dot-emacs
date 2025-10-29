@@ -362,4 +362,5 @@
    (1 . branch)
 
    (1 . propagator)
-   (1 . define-propagator)))
+   (1 . define-propagator)
+   (1 . define-struct)))
