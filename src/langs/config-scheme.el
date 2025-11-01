@@ -363,4 +363,7 @@
 
    (1 . propagator)
    (1 . define-propagator)
-   (1 . define-struct)))
+   (1 . define-struct)
+
+   (2 . let-one)
+   (2 . let1)))
