@@ -355,11 +355,20 @@
    (1 . specific)
 
    (1 . module)
+   (1 . apply)
    (1 . label)
    (1 . block)
    (1 . return)
    (1 . goto)
    (1 . branch)
+
+   (1 . @module)
+   (1 . @apply)
+   (1 . @label)
+   (1 . @block)
+   (1 . @return)
+   (1 . @goto)
+   (1 . @branch)
 
    (1 . propagator)
    (1 . define-propagator)
