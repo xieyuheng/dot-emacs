@@ -356,6 +356,8 @@
 
    (1 . module)
    (1 . apply)
+   (1 . call)
+   (1 . const)
    (1 . label)
    (1 . block)
    (1 . return)
@@ -364,6 +366,8 @@
 
    (1 . @module)
    (1 . @apply)
+   (1 . @call)
+   (1 . @const)
    (1 . @label)
    (1 . @block)
    (1 . @return)
