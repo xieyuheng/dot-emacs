@@ -363,6 +363,7 @@
    (1 . return)
    (1 . goto)
    (1 . branch)
+   (1 . argument)
 
    (1 . @module)
    (1 . @apply)
@@ -373,6 +374,12 @@
    (1 . @return)
    (1 . @goto)
    (1 . @branch)
+
+   (1 . function)
+   (1 . @function)
+
+   (1 . curry)
+   (1 . @curry)
 
    (1 . propagator)
    (1 . define-propagator)
