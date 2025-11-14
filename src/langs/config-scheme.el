@@ -402,4 +402,5 @@
    (1 . imm)
    (1 . imm-label)
    (1 . cc)
-   (1 . arity)))
+   (1 . arity)
+   (0 . extern)))
