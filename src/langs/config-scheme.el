@@ -393,4 +393,13 @@
 
    (2 . let1)
    (2 . @let1)
-   (0 . @begin)))
+   (0 . @begin)
+
+   (1 . reg)
+   (1 . deref)
+   (1 . deref-reg)
+   (1 . deref-label)
+   (1 . imm)
+   (1 . imm-label)
+   (1 . cc)
+   (1 . arity)))
