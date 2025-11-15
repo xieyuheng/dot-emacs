@@ -182,6 +182,7 @@
    (1 . import-only)
    (1 . import-all)
    (1 . import-as)
+   (1 . import-except)
    (1 . include)
    (1 . include-all)
    (1 . include-only)
@@ -393,14 +394,4 @@
 
    (2 . let1)
    (2 . @let1)
-   (0 . @begin)
-
-   (1 . reg)
-   (1 . deref)
-   (1 . deref-reg)
-   (1 . deref-label)
-   (1 . imm)
-   (1 . imm-label)
-   (1 . cc)
-   (1 . arity)
-   (0 . extern)))
+   (0 . @begin)))
