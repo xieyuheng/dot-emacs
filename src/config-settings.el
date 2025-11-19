@@ -28,8 +28,6 @@
 (setq-default indent-tabs-mode nil)
 (setq case-fold-search nil)
 (setq case-replace t)
-(setq enable-recursive-minibuffers nil)
-(add-hook 'minibuffer-setup-hook (lambda () (setq truncate-lines t)))
 (setq scroll-margin 7)
 (setq scroll-conservatively 10000)
 (transient-mark-mode t)
@@ -88,3 +86,10 @@
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
+;;;; minibuffer
+
+(setq enable-recursive-minibuffers nil)
+(add-hook 'minibuffer-setup-hook (lambda () (setq truncate-lines t)))
+(setq resize-mini-windows nil)
+(setq max-mini-window-height 1)
