@@ -131,8 +131,18 @@
 
 ;;;; save-buffer
 
-(global-set-key (kbd "C-x C-s") (lambda () (interactive) (save-buffer) (redraw-display)))
-(global-set-key (kbd "C-s C-x") (lambda () (interactive) (save-buffer) (redraw-display)))
+(defun my-save-buffer ()
+  (interactive)
+  (let ((inhibit-message t))
+    (save-buffer))
+  (message
+   "(save) %s"
+   (truncate-string-to-width
+    (file-name-nondirectory (buffer-file-name))
+    60 nil nil "...")))
+
+(global-set-key (kbd "C-x C-s") 'my-save-buffer)
+(global-set-key (kbd "C-s C-x") 'my-save-buffer)
 
 ;;;; mouse
 

@@ -91,7 +91,7 @@
 
 (setq enable-recursive-minibuffers nil)
 ;; (add-hook 'minibuffer-setup-hook (lambda () (setq truncate-lines t)))
-(setq resize-mini-windows nil)
+;; (setq resize-mini-windows nil)
 ;; (setq max-mini-window-height 3)
 
 ;;;; dired
