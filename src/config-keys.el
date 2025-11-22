@@ -33,6 +33,8 @@
 
 (global-set-key (kbd "C-M-y") 'x-clipboard-yank)
 
+(global-set-key (kbd "C-M-u") 'fill-region)
+
 ;;;; <C-f1> <C-f2>
 
 (defun my-<C-f1> () (interactive) (forward-word) (delete-char 1) (insert "-"))
