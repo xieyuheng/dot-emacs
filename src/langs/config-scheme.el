@@ -394,6 +394,9 @@
    (1 . define-propagator)
    (1 . define-struct)
    (1 . define-code)
+   (1 . define-metadata)
+   (1 . define-placeholder)
+   (1 . define-setup)
 
    (2 . let1)
    (2 . @let1)
