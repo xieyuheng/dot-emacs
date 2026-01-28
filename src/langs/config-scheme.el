@@ -400,4 +400,6 @@
 
    (2 . let1)
    (2 . @let1)
+   (1 . begin1)
+   (1 . @begin1)
    (0 . @begin)))
