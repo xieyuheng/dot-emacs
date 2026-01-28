@@ -376,7 +376,6 @@
    (1 . @module)
    (1 . @apply)
    (1 . @call)
-   (1 . @const)
    (1 . @identity)
    (1 . @label)
    (1 . @block)
@@ -384,11 +383,22 @@
    (1 . @goto)
    (1 . @branch)
 
-   (1 . function)
-   (1 . @function)
+   (0 . function)
+   (0 . @function)
 
-   (1 . curry)
-   (1 . @curry)
+   (0 . primitive)
+   (0 . @primitive)
+
+   (0 . prim)
+   (0 . @prim)
+
+   (0 . @const)
+   (0 . const)
+   (0 . @constant)
+   (0 . constant)
+
+   (0 . curry)
+   (0 . @curry)
 
    (1 . propagator)
    (1 . define-propagator)
