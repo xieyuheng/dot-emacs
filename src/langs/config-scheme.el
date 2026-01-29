@@ -368,10 +368,12 @@
    (1 . label)
    (1 . block)
    (1 . chunk)
-   (1 . return)
-   (1 . goto)
-   (1 . branch)
-   (1 . argument)
+
+   (0 . return)
+   (0 . goto)
+   (0 . branch)
+   (0 . test)
+   (0 . argument)
 
    (1 . @module)
    (1 . @apply)
