@@ -194,9 +194,9 @@
 
    (1 . equal-t)
 
-   (2 . define-function)
-   (2 . define-variable)
-   (2 . define-primitive-function)
+   (1 . define-function)
+   (1 . define-variable)
+   (1 . define-primitive-function)
 
    (0 . ~)
    ;; (0 . +)
@@ -227,7 +227,6 @@
    (1 . define-object)
    (2 . datatype)
    (2 . define-datatype)
-   (1 . define-function)
 
    (1 . map!)
 
