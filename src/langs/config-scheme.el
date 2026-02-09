@@ -177,17 +177,23 @@
    (1 . type)
    (3 . data)
    (3 . codata)
+
    (0 . export)
+   (0 . export-all)
+   (0 . export-except)
+
    (1 . import)
    (1 . import-only)
    (1 . import-all)
    (1 . import-as)
    (1 . import-except)
+
    (1 . include)
    (1 . include-all)
    (1 . include-only)
    (1 . include-except)
    (1 . include-as)
+
    (1 . require)
    (0 . example)
    (0 . effect)
