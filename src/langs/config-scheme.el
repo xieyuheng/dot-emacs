@@ -344,6 +344,9 @@
    (0 . @record)
    (0 . @set)
    (0 . @hash)
+   (0 . @tuple)
+   (0 . @object)
+   (0 . @class)
    (1 . @pattern)
    (1 . @escape)
 
