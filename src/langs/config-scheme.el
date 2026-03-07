@@ -178,6 +178,8 @@
    (3 . data)
    (3 . codata)
 
+   (0 . exempt)
+
    (0 . export)
    (0 . export-all)
    (0 . export-except)
