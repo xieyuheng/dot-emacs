@@ -159,7 +159,7 @@
    (1 . define-primitive)
    (1 . define-lazy)
 
-   (1 . class)
+   (0 . class)
    (2 . class*)
    (1 . interface)
    (1 . new)
@@ -248,7 +248,7 @@
    (2 . declare)
    (0 . run)
 
-   (2 . define-class)
+   (1 . define-class)
 
    ;; pie
    (1 . which-Nat)
