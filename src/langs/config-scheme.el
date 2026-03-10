@@ -198,6 +198,7 @@
    (1 . include-as)
 
    (1 . require)
+   (1 . @require)
    (0 . example)
    (0 . effect)
 
