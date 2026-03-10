@@ -170,6 +170,7 @@
 
    (1 . match)
    (1 . match*)
+   (1 . match-many)
 
    (2 . syntax-case)
    (1 . syntax-parse)
