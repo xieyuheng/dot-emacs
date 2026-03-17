@@ -290,6 +290,12 @@
    (0 . assert-equal)
    (0 . assert-not-equal)
 
+   (0 . assert-bisimilar)
+   (0 . assert-not-bisimilar)
+
+   (0 . assert-convertible)
+   (0 . assert-not-convertible)
+
    (0 . assert-type-equal)
    (0 . assert-not-type-equal)
 
