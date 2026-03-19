@@ -235,8 +235,8 @@
    (1 . define-record)
    (1 . define-data)
    (1 . define-object)
-   (2 . datatype)
-   (2 . define-datatype)
+   (1 . datatype)
+   (1 . define-datatype)
 
    (1 . map!)
 
