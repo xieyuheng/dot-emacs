@@ -161,7 +161,11 @@
 
    (0 . class)
    (2 . class*)
-   (1 . interface)
+
+   (0 . interface)
+   (0 . @interface)
+   (1 . @interface-extend)
+
    (1 . new)
    (1 . send)
    (0 . :)
