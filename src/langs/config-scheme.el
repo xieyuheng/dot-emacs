@@ -162,10 +162,6 @@
    (0 . class)
    (2 . class*)
 
-   (0 . interface)
-   (0 . @interface)
-   (1 . @interface-extend)
-
    (1 . new)
    (1 . send)
    (0 . :)
@@ -424,9 +420,15 @@
    (0 . curry)
    (0 . @curry)
 
+   (0 . interface)
+   (0 . @interface)
+   (1 . interface-extend)   
+   (1 . @interface-extend)
+
    (1 . propagator)
    (1 . define-propagator)
    (1 . define-struct)
+   (1 . define-interface)
    (1 . define-code)
    (1 . define-metadata)
    (1 . define-placeholder)
