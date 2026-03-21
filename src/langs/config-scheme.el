@@ -422,8 +422,8 @@
 
    (0 . interface)
    (0 . @interface)
-   (1 . interface-extend)   
-   (1 . @interface-extend)
+   (1 . extend-interface)   
+   (1 . @extend-interface)
 
    (1 . propagator)
    (1 . define-propagator)
