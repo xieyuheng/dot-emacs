@@ -422,8 +422,14 @@
 
    (0 . interface)
    (0 . @interface)
-   (1 . extend-interface)   
+   (1 . extend-interface)
    (1 . @extend-interface)
+   (1 . extend)
+   (1 . @extend)
+   (1 . put)
+   (1 . @put)
+   (1 . put!)
+   (1 . @put!)
 
    (1 . propagator)
    (1 . define-propagator)
