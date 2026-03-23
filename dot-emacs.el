@@ -45,7 +45,6 @@
 (load "config-c")
 (load "config-python")
 (load "config-scala")
-(load "config-cicada")
 (load "config-go")
 (load "config-rust")
 (load "config-lua")
