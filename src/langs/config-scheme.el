@@ -13,6 +13,7 @@
 (setq auto-mode-alist (cons `("\\.cicada$" . scheme-mode) auto-mode-alist))
 (setq auto-mode-alist (cons `("\\.machine$" . scheme-mode) auto-mode-alist))
 (setq auto-mode-alist (cons `("\\.dump$" . scheme-mode) auto-mode-alist))
+(setq auto-mode-alist (cons `("\\.stack$" . scheme-mode) auto-mode-alist))
 
 (defun switch-to-buffer-*scheme* ()
   (interactive)
