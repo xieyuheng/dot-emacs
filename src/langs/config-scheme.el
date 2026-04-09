@@ -381,6 +381,7 @@
    (1 . specific)
 
    (1 . module)
+   (1 . type-error-module)
    (1 . apply)
    (1 . call)
    (1 . const)
@@ -434,7 +435,7 @@
    (1 . update)
    (1 . @update)
    (1 . update!)
-   (1 . @update!)      
+   (1 . @update!)
    (1 . put)
    (1 . @put)
    (1 . put!)
