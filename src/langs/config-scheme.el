@@ -448,6 +448,7 @@
    (1 . define-metadata)
    (1 . define-placeholder)
    (1 . define-setup)
+   (1 . define-test)
 
    (2 . let1)
    (2 . @let1)
