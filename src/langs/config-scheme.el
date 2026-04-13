@@ -116,6 +116,16 @@
    (0 . lend)
    (0 . connect)
 
+   ;; datalog
+   (1 . define-fact)
+   (1 . define-rule)
+
+   ;; datomic
+   (1 . db-transect)
+   (1 . db-find)
+   (1 . db-clause)
+   (1 . db-pull)
+
    ;; the little prover
    (2 . dethm)
    (1 . J-Bob/step)
