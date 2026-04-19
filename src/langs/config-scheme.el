@@ -461,6 +461,9 @@
    (1 . define-setup)
    (1 . define-test)
 
+   (1 . declare-primitive-function)
+   (1 . declare-primitive-variable)
+
    (2 . let1)
    (2 . @let1)
    (1 . begin1)
