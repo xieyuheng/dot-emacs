@@ -1,4 +1,4 @@
-(setq c-basic-offset 4)
+(setq c-basic-offset 2)
 (setq c-default-style "k&r")
 
 ;; (setq c-default-style "stroustrup")
