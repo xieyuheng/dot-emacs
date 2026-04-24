@@ -463,6 +463,7 @@
 
    (1 . declare-primitive-function)
    (1 . declare-primitive-variable)
+   (1 . declare-primitive-type)
 
    (2 . let1)
    (2 . @let1)
