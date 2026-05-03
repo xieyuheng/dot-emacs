@@ -91,8 +91,9 @@
     (,(regexp-opt meta-lisp--type-constructor-keywords 'words)
      . font-lock-type-face)
 
-    ;; Type names ending with -t (int-t, float-t, list-t, etc.)
-     ("[a-zA-Z0-9\\-\\_]+-t\\>"
+    ;; Type names ending with -t (int-t, float-t, my-list-t, etc.)
+    ;; Must include - in the character class to match names like my-list-t
+    ("\\<[a-zA-Z0-9-]+-t\\>"
      . font-lock-type-face)
 
     ;; Literal prefixes: @list, @record, @set, @hash
@@ -120,10 +121,6 @@
   ;; Comment style (same as lisp)
   (setq comment-start ";")
   (setq comment-end "")
-
-  ;; Indentation (inherit from lisp-mode)
-  (setq lisp-body-indent 2)
-  (setq lisp-indent-offset 2)
 
   ;; Treat [], {}, and () as parentheses for bracket matching
   ;; This enables show-paren-mode and electric-pair-mode for all bracket types
