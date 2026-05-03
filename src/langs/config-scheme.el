@@ -285,6 +285,7 @@
    (1 . check-same)
    (1 . check)
    (1 . claim)
+   (1 . admit)
    (1 . pi)
    (1 . pi*)
    (1 . iota)
