@@ -36,7 +36,6 @@
 (load "config-lisp")
 (load "config-racket")
 (load "config-clojure")
-(load "config-meta-lisp")
 
 (load "config-typescript")
 (load "config-web")
