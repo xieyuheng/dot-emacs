@@ -1,7 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/clojure-mode/")
 (require 'clojure-mode)
 
-(add-hook 'clojure-mode-hook #'enable-paredit-mode)
 (add-hook
  'clojure-mode-hook
  (lambda ()

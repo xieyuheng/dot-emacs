@@ -92,7 +92,7 @@
      . font-lock-type-face)
 
     ;; Type names ending with -t (int-t, float-t, list-t, etc.)
-    ("[a-zA-Z0-9]+-t\\>"
+     ("[a-zA-Z0-9\\-\\_]+-t\\>"
      . font-lock-type-face)
 
     ;; Literal prefixes: @list, @record, @set, @hash
