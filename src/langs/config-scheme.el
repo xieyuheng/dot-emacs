@@ -195,6 +195,7 @@
    (3 . codata)
 
    (0 . exempt)
+   (0 . private)
 
    (0 . export)
    (0 . export-all)
