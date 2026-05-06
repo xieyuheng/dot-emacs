@@ -338,6 +338,7 @@
    (0 . ->)
    (0 . *->)
    (0 . compose)
+   (0 . chain)   
    (0 . choice)
    (0 . do)
    (1 . given)
