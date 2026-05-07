@@ -48,7 +48,6 @@
 (load "config-go")
 (load "config-rust")
 (load "config-lua")
-(load "config-julia")
 
 (load "config-uxn")
 (load "config-asm")
