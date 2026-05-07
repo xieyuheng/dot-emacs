@@ -395,7 +395,7 @@
    (1 . specific)
 
    (1 . module)
-   (1 . type-error-module)
+   (1 . error-module)
    (1 . apply)
    (1 . call)
    (1 . const)
