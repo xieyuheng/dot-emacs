@@ -250,7 +250,9 @@
 
    (1 . define-type)
    (1 . define-record)
+   (1 . define-record-type)
    (1 . define-data)
+   (1 . define-algebraic-type)
    (1 . define-object)
    (1 . datatype)
    (1 . define-datatype)
@@ -338,7 +340,7 @@
    (0 . ->)
    (0 . *->)
    (0 . compose)
-   (0 . chain)   
+   (0 . chain)
    (0 . choice)
    (0 . do)
    (1 . given)
