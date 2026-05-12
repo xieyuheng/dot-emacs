@@ -254,6 +254,7 @@
    (1 . define-data)
    (1 . define-enum)
    (1 . define-struct)
+   (1 . define-struct*)   
    (1 . define-algebraic-type)
    (1 . define-object)
    (1 . datatype)
