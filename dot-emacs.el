@@ -34,6 +34,7 @@
 
 (load "config-scheme")
 (load "config-lisp")
+(load "config-meta-lisp")
 (load "config-racket")
 (load "config-clojure")
 
