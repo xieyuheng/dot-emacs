@@ -3,6 +3,22 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/molokai-theme/")
 ;; (load-theme 'molokai t)
 
+;;;; standard-themes
+
+(add-to-list 'load-path (expand-file-name "themes/standard-themes" user-emacs-directory))
+
+;; ---- standard-themes (暗色) ----
+
+(require 'standard-dark-theme)         (load-theme 'standard-dark t)         ;; 模拟未定制暗色 Emacs，但更一致
+;; (require 'standard-dark-tinted-theme)  (load-theme 'standard-dark-tinted t)  ;; 暗色夜空变体
+;; (require 'standard-wombat-theme)       (load-theme 'standard-wombat t)       ;; 模拟内置 wombat，但更一致
+
+;; ---- standard-themes (亮色) ----
+
+;; (require 'standard-light-theme)         (load-theme 'standard-light t)         ;; 模拟未定制亮色 Emacs，但更一致
+;; (require 'standard-light-tinted-theme)  (load-theme 'standard-light-tinted t)  ;; 亮色变体
+;; (require 'standard-adwaita-theme)       (load-theme 'standard-adwaita t)       ;; 模拟内置 adwaita，但更一致
+
 ;;;; doric-themes
 
 (add-to-list 'load-path (expand-file-name "themes/doric-themes" user-emacs-directory))
@@ -41,7 +57,7 @@
 
 ;; ---- modus-themes (暗色) ----
 
-(require 'modus-vivendi-theme)              (load-theme 'modus-vivendi t)              ;; 暗色，高对比 (WCAG AAA)
+;; (require 'modus-vivendi-theme)              (load-theme 'modus-vivendi t)              ;; 暗色，高对比 (WCAG AAA)
 ;; (require 'modus-vivendi-tinted-theme)       (load-theme 'modus-vivendi-tinted t)       ;; 暗色 + 轻微色调
 ;; (require 'modus-vivendi-deuteranopia-theme) (load-theme 'modus-vivendi-deuteranopia t) ;; 暗色，红绿色盲友好
 ;; (require 'modus-vivendi-tritanopia-theme)   (load-theme 'modus-vivendi-tritanopia t)   ;; 暗色，蓝黄色盲友好
