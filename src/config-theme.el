@@ -1,15 +1,15 @@
 ;;;; molokai-theme
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/molokai-theme/")
+; ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/molokai-theme/")
 ;; (load-theme 'molokai t)
 
 ;;;; standard-themes
 
-(add-to-list 'load-path (expand-file-name "themes/standard-themes" user-emacs-directory))
+;; (add-to-list 'load-path (expand-file-name "themes/standard-themes" user-emacs-directory))
 
 ;; ---- standard-themes (暗色) ----
 
-(require 'standard-dark-theme)         (load-theme 'standard-dark t)         ;; 模拟未定制暗色 Emacs，但更一致
+;; (require 'standard-dark-theme)         (load-theme 'standard-dark t)         ;; 模拟未定制暗色 Emacs，但更一致
 ;; (require 'standard-dark-tinted-theme)  (load-theme 'standard-dark-tinted t)  ;; 暗色夜空变体
 ;; (require 'standard-wombat-theme)       (load-theme 'standard-wombat t)       ;; 模拟内置 wombat，但更一致
 
@@ -21,7 +21,7 @@
 
 ;;;; doric-themes
 
-(add-to-list 'load-path (expand-file-name "themes/doric-themes" user-emacs-directory))
+;; (add-to-list 'load-path (expand-file-name "themes/doric-themes" user-emacs-directory))
 
 ;; ---- doric-themes (暗色) ----
 
@@ -53,7 +53,7 @@
 
 ;;;; modus-themes
 
-(add-to-list 'load-path (expand-file-name "themes/modus-themes" user-emacs-directory))
+;; (add-to-list 'load-path (expand-file-name "themes/modus-themes" user-emacs-directory))
 
 ;; ---- modus-themes (暗色) ----
 
@@ -71,7 +71,7 @@
 
 ;;;; ef-themes
 
-(add-to-list 'load-path (expand-file-name "themes/ef-themes" user-emacs-directory))
+;; (add-to-list 'load-path (expand-file-name "themes/ef-themes" user-emacs-directory))
 
 ;; ---- ef-themes (暗色) ----
 
