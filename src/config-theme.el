@@ -1,27 +1,12 @@
 ;;;; molokai-theme
 
-; ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/molokai-theme/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/molokai-theme/")
+
 ;; (load-theme 'molokai t)
-
-;;;; standard-themes
-
-;; (add-to-list 'load-path (expand-file-name "themes/standard-themes" user-emacs-directory))
-
-;; ---- standard-themes (暗色) ----
-
-;; (require 'standard-dark-theme)         (load-theme 'standard-dark t)         ;; 模拟未定制暗色 Emacs，但更一致
-;; (require 'standard-dark-tinted-theme)  (load-theme 'standard-dark-tinted t)  ;; 暗色夜空变体
-;; (require 'standard-wombat-theme)       (load-theme 'standard-wombat t)       ;; 模拟内置 wombat，但更一致
-
-;; ---- standard-themes (亮色) ----
-
-;; (require 'standard-light-theme)         (load-theme 'standard-light t)         ;; 模拟未定制亮色 Emacs，但更一致
-;; (require 'standard-light-tinted-theme)  (load-theme 'standard-light-tinted t)  ;; 亮色变体
-;; (require 'standard-adwaita-theme)       (load-theme 'standard-adwaita t)       ;; 模拟内置 adwaita，但更一致
 
 ;;;; doric-themes
 
-;; (add-to-list 'load-path (expand-file-name "themes/doric-themes" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "themes/doric-themes" user-emacs-directory))
 
 ;; ---- doric-themes (暗色) ----
 
@@ -51,9 +36,9 @@
 ;; (require 'doric-water-theme)   (load-theme 'doric-water t)   ;; 亮青蓝
 ;; (require 'doric-wind-theme)    (load-theme 'doric-wind t)    ;; 淡蓝 / 天空色
 
-;;;; modus-themes
+;;;; modus-themes (standard-themes and ef-themes depends on this)
 
-;; (add-to-list 'load-path (expand-file-name "themes/modus-themes" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "themes/modus-themes" user-emacs-directory))
 
 ;; ---- modus-themes (暗色) ----
 
@@ -69,9 +54,25 @@
 ;; (require 'modus-operandi-deuteranopia-theme) (load-theme 'modus-operandi-deuteranopia t) ;; 亮色，红绿色盲友好
 ;; (require 'modus-operandi-tritanopia-theme)   (load-theme 'modus-operandi-tritanopia t)   ;; 亮色，蓝黄色盲友好
 
+;;;; standard-themes
+
+(add-to-list 'load-path (expand-file-name "themes/standard-themes" user-emacs-directory))
+
+;; ---- standard-themes (暗色) ----
+
+;; (require 'standard-dark-theme)         (load-theme 'standard-dark t)         ;; 模拟未定制暗色 Emacs，但更一致
+;; (require 'standard-dark-tinted-theme)  (load-theme 'standard-dark-tinted t)  ;; 暗色夜空变体
+;; (require 'standard-wombat-theme)       (load-theme 'standard-wombat t)       ;; 模拟内置 wombat，但更一致
+
+;; ---- standard-themes (亮色) ----
+
+;; (require 'standard-light-theme)         (load-theme 'standard-light t)         ;; 模拟未定制亮色 Emacs，但更一致
+;; (require 'standard-light-tinted-theme)  (load-theme 'standard-light-tinted t)  ;; 亮色变体
+;; (require 'standard-adwaita-theme)       (load-theme 'standard-adwaita t)       ;; 模拟内置 adwaita，但更一致
+
 ;;;; ef-themes
 
-;; (add-to-list 'load-path (expand-file-name "themes/ef-themes" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "themes/ef-themes" user-emacs-directory))
 
 ;; ---- ef-themes (暗色) ----
 
