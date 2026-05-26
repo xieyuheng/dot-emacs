@@ -28,7 +28,7 @@
 
 ;;;; 黑
 
-(set-fontset-font t 'han (font-spec :name "unifont" :size 54))
+(set-fontset-font t 'han (font-spec :name "unifont" :size 48))
 ;; (set-fontset-font t 'han (font-spec :name "H-雲林呉竹体" :size 26))
 ;; (set-fontset-font t 'han (font-spec :name "Sarasa Mono SC" :size 50))
 ;; (set-fontset-font t 'han (font-spec :name "H-明蘭" :size 5044))
@@ -56,7 +56,7 @@
 
 ;;;; latin
 
-(set-face-attribute 'default nil :family "unifont" :height 200)
+(set-face-attribute 'default nil :family "unifont" :height 180)
 (set-face-attribute 'fixed-pitch nil :family "unifont")
 ;; (set-face-attribute 'default nil :family "Input" :height 150)
 ;; (set-face-attribute 'default nil :family "Monaco" :height 170)
