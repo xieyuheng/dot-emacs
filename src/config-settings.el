@@ -15,8 +15,7 @@
 
 ;;;; line height
 
-;; (setq-default line-spacing 0.15)
-(setq default-text-properties '(line-spacing 0.1 line-height 1.1))
+(setq-default line-spacing 0.15)
 
 ;;;; misc
 
