@@ -9,6 +9,7 @@
       (list 'my-space-for-delimiter-p))
 
 (add-hook 'prog-mode-hook 'enable-paredit-mode)
+(add-hook 'markdown-mode-hook 'enable-paredit-mode)
 
 ;; my usage of the keys
 
