@@ -64,11 +64,11 @@
 | `C-s C-c` | 克隆 frame            | `clone-frame`    | 无                                |
 | `C-s C-j` | 跳转 file:line:column | `x-jump-to-file` | 无                                |
 
-| 快捷键    | 第一次（全局）       | 第二次（local 覆盖）         |
-|-----------|----------------------|------------------------------|
-| `C-s C-e` | 打开 eshell          | eshell 内 -> 返回上一 buffer |
-| `C-s C-s` | 编辑 markdown 代码块 | edit-indirect 内 -> 提交返回 |
-| `C-s C-w` | 打开 ranger          | ranger 内 -> 回到原窗口      |
+| 快捷键    | 第一次（全局）       | 第二次（local 覆盖）       |
+|-----------|----------------------|----------------------------|
+| `C-s C-e` | 打开 eshell          | eshell 内：返回上一 buffer |
+| `C-s C-s` | 编辑 markdown 代码块 | edit-indirect 内：提交返回 |
+| `C-s C-w` | 打开 ranger          | ranger 内：回到原窗口      |
 
 ### 括号 / S-表达式
 
