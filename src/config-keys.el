@@ -1,6 +1,6 @@
 ;;;; clone-frame
 
-(global-set-key (kbd "C-c C-c") 'clone-frame)
+(global-set-key (kbd "C-s C-s") 'clone-frame)
 
 ;;;; hippie-expand
 

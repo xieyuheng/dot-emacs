@@ -35,7 +35,7 @@
 | `M-n`     | 下一段落    | `forward-paragraph`  | 无               |
 | `<prior>` | 上滚 1 行   | `(scroll-down 1)`    | 半屏上翻         |
 | `<next>`  | 下滚 1 行   | `(scroll-up 1)`      | 半屏下翻         |
-| `C-c C-c` | 克隆 frame  | `clone-frame`        | 有些 mode 有绑定 |
+| `C-s C-s` | 克隆 frame | `clone-frame` | 无 |
 
 ### 搜索 / 替换
 
@@ -75,11 +75,21 @@
 
 | 快捷键 | 说明                    | 函数               | 原生命令             |
 |--------|-------------------------|--------------------|----------------------|
-| `M-[`  | 切换括号 ()→[]→{}→() | `x-cycle-brackets` | `backward-paragraph` |
-| `M-a`  | mark-sexp               | `mark-sexp`        |                      |
-| `M-e`  | backward-sexp           | `backward-sexp`    |                      |
-| `M-s`  | forward-sexp            | `forward-sexp`     |                      |
-| `M-q`  | backward-up-list        | `backward-up-list` |                      |
+| `M-[`  | 切换括号 ()→[]→{}→() | `x-cycle-brackets`           | `backward-paragraph`               |
+| `M-a`  | mark-sexp               | `mark-sexp`                  | `backward-sentence`                |
+| `M-e`  | backward-sexp           | `backward-sexp`              | `forward-sentence`                 |
+| `M-s`  | forward-sexp            | `forward-sexp`               | `center-line`                      |
+| `M-q`  | backward-up-list        | `backward-up-list`           | `fill-paragraph`                   |
+| `M-r`  | raise-sexp              | `paredit-raise-sexp`         | `move-to-window-line-top-bottom`   |
+| `M-c`  | splice-sexp             | `paredit-splice-sexp`        | `capitalize-word`                  |
+| `M-"`  | 加双引号                | `paredit-meta-doublequote`   | 无                                 |
+| `C-M-9` | 外层加括号             | `paredit-wrap-round`         | 无                                 |
+| `<C-right>` | 向前吞              | `paredit-forward-slurp-sexp` | `right-word`                       |
+| `<C-left>`  | 向前吐              | `paredit-forward-barf-sexp`  | `left-word`                        |
+| `<C-M-right>` | 向后吐             | `paredit-backward-barf-sexp` | 无                                 |
+| `<C-M-left>`  | 向后吞             | `paredit-backward-slurp-sexp` | 无                                |
+
+paredit 内解绑：`C-j` `<RET>` `C-M-u` `C-M-d` `C-M-p` `C-M-n` `;`
 
 ### 已解绑
 
