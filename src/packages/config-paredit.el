@@ -8,8 +8,13 @@
 (setq paredit-space-for-delimiter-predicates
       (list 'my-space-for-delimiter-p))
 
-(add-hook 'prog-mode-hook 'enable-paredit-mode)
-(add-hook 'markdown-mode-hook 'enable-paredit-mode)
+(defun x-safe-paredit-mode ()
+  (condition-case nil
+      (paredit-mode 1)
+    (error nil)))
+
+(add-hook 'prog-mode-hook 'x-safe-paredit-mode)
+(add-hook 'markdown-mode-hook 'x-safe-paredit-mode)
 
 ;; my usage of the keys
 
