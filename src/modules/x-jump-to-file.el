@@ -1,0 +1,28 @@
+(defun x-string-at-point ()
+  (if (use-region-p)
+      (buffer-substring (region-beginning) (region-end))
+    (let ((p (point)))
+      (buffer-substring
+       (save-excursion (goto-char p) (skip-chars-backward "^ \t\n\r") (point))
+       (save-excursion (goto-char p) (skip-chars-forward "^ \t\n\r") (point))))))
+
+(defun x-parse-file-line-column (string)
+  (let ((parts (split-string string ":")))
+    (list (car parts)
+          (if (nth 1 parts) (string-to-number (nth 1 parts)) 0)
+          (if (nth 2 parts) (string-to-number (nth 2 parts)) 0))))
+
+(defun x-jump-to-file ()
+  (interactive)
+  (let* ((parsed (x-parse-file-line-column (x-string-at-point)))
+         (file (nth 0 parsed))
+         (line (nth 1 parsed))
+         (column (nth 2 parsed)))
+    (unless (file-exists-p file)
+      (user-error "(jump-to-file) no such file: %s" file))
+    (find-file file)
+    (goto-char (point-min))
+    (forward-line (- line 1))
+    (forward-char (- column 1))))
+
+(provide 'x-jump-to-file)

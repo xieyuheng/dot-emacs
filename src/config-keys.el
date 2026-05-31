@@ -21,9 +21,8 @@
 
 ;;;; change-parentheses
 
-(add-to-list 'load-path "~/.emacs.d/change-parentheses/")
-(require 'change-parentheses)
-(global-set-key (kbd "M-[") 'change-parentheses)
+(require 'x-change-parentheses)
+(global-set-key (kbd "M-[") 'x-change-parentheses)
 
 ;;;; x-clipboard-yank
 
@@ -168,3 +167,8 @@
  'isearch-mode-hook
  (lambda ()
    (define-key isearch-mode-map (kbd "C-t") 'isearch-repeat-forward)))
+
+;;;; jump-to-file
+
+(require 'x-jump-to-file)
+(global-set-key (kbd "C-l") 'x-jump-to-file)

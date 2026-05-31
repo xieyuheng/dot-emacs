@@ -2,7 +2,7 @@
 (setq translucent-pair '(80 60))
 
 (setq alpha-list `(,translucent-pair (100 100)))
-(defun translucent ()
+(defun x-translucent ()
   (interactive)
   (let* ((h (car alpha-list))
          (a (car h))
@@ -10,10 +10,10 @@
     (set-frame-parameter (selected-frame) 'alpha (list a ab))
     (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))
     (setq alpha-list (cdr (append alpha-list (list h))))))
-(global-set-key (kbd "<f9>") 'translucent)
+(global-set-key (kbd "<f9>") 'x-translucent)
 
 (setq alpha-list-off `((100 100) ,translucent-pair))
-(defun translucent-off ()
+(defun x-translucent-off ()
   (interactive)
   (let* ((h (car alpha-list-off))
          (a (car h))
@@ -22,7 +22,7 @@
     (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))))
 
 (setq alpha-list-on `(,translucent-pair (100 100)))
-(defun translucent-on ()
+(defun x-translucent-on ()
   (interactive)
   (let* ((h (car alpha-list-on))
          (a (car h))
@@ -30,5 +30,5 @@
     (set-frame-parameter (selected-frame) 'alpha (list a ab))
     (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))))
 
-;; (translucent-on)
-(translucent-off)
+;; (x-translucent-on)
+(x-translucent-off)
