@@ -25,15 +25,15 @@
 
 ### 窗口 / 导航
 
-| 快捷键    | 说明        | 函数                 | 原生命令         |
-|-----------|-------------|----------------------|------------------|
-| `C-o`     | 下一窗口    | `(other-window +1)`  | `open-line`      |
-| `C-.`     | 下一 buffer | `next-buffer`        | 无               |
-| `C-,`     | 上一 buffer | `previous-buffer`    | 无               |
-| `M-p`     | 上一段落    | `backward-paragraph` | 无               |
-| `M-n`     | 下一段落    | `forward-paragraph`  | 无               |
-| `<prior>` | 上滚 1 行   | `(scroll-down 1)`    | 半屏上翻         |
-| `<next>`  | 下滚 1 行   | `(scroll-up 1)`      | 半屏下翻         |
+| 快捷键    | 说明        | 函数                 | 原生命令    |
+|-----------|-------------|----------------------|-------------|
+| `C-o`     | 下一窗口    | `(other-window +1)`  | `open-line` |
+| `C-.`     | 下一 buffer | `next-buffer`        | 无          |
+| `C-,`     | 上一 buffer | `previous-buffer`    | 无          |
+| `M-p`     | 上一段落    | `backward-paragraph` | 无          |
+| `M-n`     | 下一段落    | `forward-paragraph`  | 无          |
+| `<prior>` | 上滚 1 行   | `(scroll-down 1)`    | 半屏上翻    |
+| `<next>`  | 下滚 1 行   | `(scroll-up 1)`      | 半屏下翻    |
 
 ### 搜索 / 替换
 
@@ -58,43 +58,35 @@
 
 ### C-s 前缀键
 
-> 以下 `C-s C-e`/`C-s C-s`/`C-s C-w` 遵循 toggle 模式：按一次进入，同键再按一次返回原 buffer。
+| 快捷键    | 说明                  | 函数             | 原生命令                          |
+|-----------|-----------------------|------------------|-----------------------------------|
+| `C-s`     | 自定义前缀键          | anonymous keymap | `isearch-forward`（已挪到 `C-t`） |
+| `C-s C-c` | 克隆 frame            | `clone-frame`    | 无                                |
+| `C-s C-j` | 跳转 file:line:column | `x-jump-to-file` | 无                                |
 
-| 快捷键    | 说明                      | 函数                             | 原生命令                          |
-|-----------|---------------------------|----------------------------------|-----------------------------------|
-| `C-s`     | 自定义前缀键              | anonymous keymap                 | `isearch-forward`（已挪到 `C-t`） |
-| `C-s C-c` | 克隆 frame                | `clone-frame`                    | 无                                |
-| `C-s C-e` | 当前目录开 eshell         | `open-new-eshell-in-current-dir` | 无                                |
-| `C-s C-j` | 跳转 file:line:column     | `x-jump-to-file`                 | 无                                |
-| `C-s C-w` | 打开 ranger 文件管理器    | `ranger`                         | 无                                |
-
-#### 局部覆盖
-
-| 快捷键    | 模式              | 说明               | 函数                          |
-|-----------|-------------------|--------------------|-------------------------------|
-| `C-s C-e` | eshell-mode        | 返回上一 buffer    | `previous-buffer`             |
-| `C-s C-s` | markdown-mode      | 编辑代码块         | `markdown-edit-code-block`    |
-| `C-s C-s` | edit-indirect-mode | 提交间接编辑       | `edit-indirect-commit`        |
-| `C-s C-w` | ranger-mode        | 下一窗口           | `other-window`                |
-| `C-s C-x` | ranger-mode        | 禁用 save-buffer   | `(lambda () (interactive))`   |
+| 快捷键    | 第一次（全局） | 第二次（local 覆盖）         |
+|-----------|----------------|------------------------------|
+| `C-s C-e` | 打开 eshell    | eshell 内 → 返回上一 buffer |
+| `C-s C-s` | 编辑代码块     | edit-indirect 内 → 提交返回 |
+| `C-s C-w` | 打开 ranger    | ranger 内 → 回到原窗口      |
 
 ### 括号 / S-表达式
 
-| 快捷键 | 说明                    | 函数               | 原生命令             |
-|--------|-------------------------|--------------------|----------------------|
-| `M-[`  | 切换括号 ()→[]→{}→() | `x-cycle-brackets`           | `backward-paragraph`               |
-| `M-a`  | mark-sexp               | `mark-sexp`                  | `backward-sentence`                |
-| `M-e`  | backward-sexp           | `backward-sexp`              | `forward-sentence`                 |
-| `M-s`  | forward-sexp            | `forward-sexp`               | `center-line`                      |
-| `M-q`  | backward-up-list        | `backward-up-list`           | `fill-paragraph`                   |
-| `M-r`  | raise-sexp              | `paredit-raise-sexp`         | `move-to-window-line-top-bottom`   |
-| `M-c`  | splice-sexp             | `paredit-splice-sexp`        | `capitalize-word`                  |
-| `M-"`  | 加双引号                | `paredit-meta-doublequote`   | 无                                 |
-| `C-M-9` | 外层加括号             | `paredit-wrap-round`         | 无                                 |
-| `<C-right>` | 向前吞              | `paredit-forward-slurp-sexp` | `right-word`                       |
-| `<C-left>`  | 向前吐              | `paredit-forward-barf-sexp`  | `left-word`                        |
-| `<C-M-right>` | 向后吐             | `paredit-backward-barf-sexp` | 无                                 |
-| `<C-M-left>`  | 向后吞             | `paredit-backward-slurp-sexp` | 无                                |
+| 快捷键        | 说明                    | 函数                          | 原生命令                         |
+|---------------|-------------------------|-------------------------------|----------------------------------|
+| `M-[`         | 切换括号 ()->[]->{}->() | `x-cycle-brackets`            | `backward-paragraph`             |
+| `M-a`         | mark-sexp               | `mark-sexp`                   | `backward-sentence`              |
+| `M-e`         | backward-sexp           | `backward-sexp`               | `forward-sentence`               |
+| `M-s`         | forward-sexp            | `forward-sexp`                | `center-line`                    |
+| `M-q`         | backward-up-list        | `backward-up-list`            | `fill-paragraph`                 |
+| `M-r`         | raise-sexp              | `paredit-raise-sexp`          | `move-to-window-line-top-bottom` |
+| `M-c`         | splice-sexp             | `paredit-splice-sexp`         | `capitalize-word`                |
+| `M-"`         | 加双引号                | `paredit-meta-doublequote`    | 无                               |
+| `C-M-9`       | 外层加括号              | `paredit-wrap-round`          | 无                               |
+| `<C-right>`   | 向前吞                  | `paredit-forward-slurp-sexp`  | `right-word`                     |
+| `<C-left>`    | 向前吐                  | `paredit-forward-barf-sexp`   | `left-word`                      |
+| `<C-M-right>` | 向后吐                  | `paredit-backward-barf-sexp`  | 无                               |
+| `<C-M-left>`  | 向后吞                  | `paredit-backward-slurp-sexp` | 无                               |
 
 paredit 内解绑：`C-j` `<RET>` `C-M-u` `C-M-d` `C-M-p` `C-M-n` `;`
 
