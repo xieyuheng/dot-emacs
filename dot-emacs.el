@@ -3,7 +3,15 @@
 ;;;; x
 
 (add-to-list 'load-path "~/.emacs.d/dot-emacs/src/x")
-(require 'x)
+
+(require 'x-convert)
+(require 'x-cycle-brackets)
+(require 'x-jump-to-file)
+(require 'x-kill-current-buffer)
+(require 'x-paste-from-clipboard)
+(require 'x-save-buffer)
+(require 'x-toggle-comment)
+
 
 ;;;; configs (no extra dependency)
 

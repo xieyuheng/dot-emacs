@@ -1,5 +1,7 @@
 ;;;; prefix-command
 
+(require 'x)
+
 (define-prefix-command 'C-s-map)
 (global-set-key (kbd "C-s") 'C-s-map)
 
