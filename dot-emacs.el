@@ -1,8 +1,9 @@
 ;; (setq gc-cons-threshold most-positive-fixnum)
 
-;;;; modules
+;;;; x
 
-(add-to-list 'load-path "~/.emacs.d/dot-emacs/src/modules")
+(add-to-list 'load-path "~/.emacs.d/dot-emacs/src/x")
+(require 'x)
 
 ;;;; configs (no extra dependency)
 

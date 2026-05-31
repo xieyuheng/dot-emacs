@@ -27,7 +27,7 @@
  (  ?\{    "("  )
  (  ?\}    ")"  ))
 
-(defun x-change-parentheses ()
+(defun x-cycle-brackets ()
   (interactive)
   (cond ((looking-at "\(")
          (message "( ) --> [ ]")
@@ -69,6 +69,6 @@
            (with-syntax-table parentheses-syntax-table
              (forward-sexp -1))))
         (t ;;else
-         (message "x-change-parentheses have nothing to do here !"))))
+         (message "x-cycle-brackets have nothing to do here !"))))
 
-(provide 'x-change-parentheses)
+(provide 'x-cycle-brackets)

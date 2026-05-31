@@ -21,26 +21,18 @@
 
 ;;;; change-parentheses
 
-(require 'x-change-parentheses)
-(global-set-key (kbd "M-[") 'x-change-parentheses)
+(global-set-key (kbd "M-[") 'x-cycle-brackets)
 
-;;;; x-clipboard-yank
+;;;; x-paste-from-clipboard
 
-(defun x-clipboard-yank ()
-  (interactive)
-  (insert (eshell-command-result "xclip -o")))
-
-(global-set-key (kbd "C-M-y") 'x-clipboard-yank)
+(global-set-key (kbd "C-M-y") 'x-paste-from-clipboard)
 
 (global-set-key (kbd "C-M-u") 'fill-region)
 
 ;;;; <C-f1> <C-f2>
 
-(defun my-<C-f1> () (interactive) (forward-word) (delete-char 1) (insert "-"))
-(defun my-<C-f2> () (interactive) (forward-word) (delete-char 1) (insert "_"))
-
-(global-set-key (kbd "<C-f1>") 'my-<C-f1>)
-(global-set-key (kbd "<C-f2>") 'my-<C-f2>)
+(global-set-key (kbd "<C-f1>") 'x-convert-to-kebab)
+(global-set-key (kbd "<C-f2>") 'x-convert-to-snake)
 
 ;;;; unbind
 
@@ -72,23 +64,13 @@
 
 ;;;; comment
 
-(defun x-comment-or-uncomment ()
-  (interactive)
-  (if (use-region-p)
-      (comment-or-uncomment-region (region-beginning) (region-end))
-    (comment-or-uncomment-region (line-beginning-position) (line-end-position))))
-
-(global-set-key (kbd "C-;") 'x-comment-or-uncomment)
+(global-set-key (kbd "C-;") 'x-toggle-comment)
 
 ;;;; edit
 
-(defun kill-current-buffer ()
-  (interactive)
-  (kill-buffer (current-buffer)))
-
 (global-set-key (kbd "C-x <backspace>") 'delete-backward-char)
 (global-set-key (kbd "C-x C-h") 'mark-whole-buffer)
-(global-set-key (kbd "C-x k") 'kill-current-buffer)
+(global-set-key (kbd "C-x k") 'x-kill-current-buffer)
 
 ;;;; view
 
@@ -114,23 +96,8 @@
 
 ;;;; save-buffer
 
-(defun my-save-buffer ()
-  (interactive)
-  (let ((inhibit-message t))
-     (save-buffer))
-  (let* ((prefix "(save) ")
-         (right-margin 0)
-         (max-width (- (window-total-width (minibuffer-window))
-                       (+ (length prefix) right-margin))))
-    (message
-     "%s%s"
-     prefix
-     (truncate-string-to-width
-      (file-name-nondirectory (buffer-file-name))
-      max-width nil nil "…"))))
-
-(global-set-key (kbd "C-x C-s") 'my-save-buffer)
-(global-set-key (kbd "C-s C-x") 'my-save-buffer)
+(global-set-key (kbd "C-x C-s") 'x-save-buffer)
+(global-set-key (kbd "C-s C-x") 'x-save-buffer)
 
 ;;;; mouse
 
@@ -154,5 +121,4 @@
 
 ;;;; jump-to-file
 
-(require 'x-jump-to-file)
 (global-set-key (kbd "C-s C-j") 'x-jump-to-file)
