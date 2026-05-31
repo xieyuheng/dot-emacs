@@ -9,9 +9,9 @@
       (list 'my-space-for-delimiter-p))
 
 (defun x-safe-paredit-mode ()
-  (condition-case nil
+  (condition-case err
       (paredit-mode 1)
-    (error nil)))
+    (error (message "(x-safe-paredit-mode) paredit not enabled: %s" (error-message-string err)))))
 
 (add-hook 'prog-mode-hook 'x-safe-paredit-mode)
 (add-hook 'markdown-mode-hook 'x-safe-paredit-mode)
