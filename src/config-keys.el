@@ -1,3 +1,8 @@
+;;;; prefix-command
+
+(define-prefix-command 'C-s-map)
+(global-set-key (kbd "C-s") 'C-s-map)
+
 ;;;; clone-frame
 
 (global-set-key (kbd "C-s C-s") 'clone-frame)
@@ -40,13 +45,6 @@
 (global-set-key (kbd "M-j") 'nil)
 (global-set-key (kbd "M-k") 'nil)
 (global-set-key (kbd "M-`") 'nil)
-
-;;;; prefix-command
-
-(define-prefix-command 'C-s-map)
-(global-set-key (kbd "C-s") 'C-s-map)
-;; "C-s C-s" : edit-indirect-commit
-;; "C-s C-e" : switch-to-eshell
 
 ;;;; cruise
 
