@@ -3,8 +3,8 @@
       (buffer-substring (region-beginning) (region-end))
     (let ((p (point)))
       (buffer-substring
-       (save-excursion (goto-char p) (skip-chars-backward "^ \t\n\r") (point))
-       (save-excursion (goto-char p) (skip-chars-forward "^ \t\n\r") (point))))))
+       (save-excursion (goto-char p) (skip-chars-backward "^ \t\n\r{}()[]") (point))
+       (save-excursion (goto-char p) (skip-chars-forward "^ \t\n\r{}()[]") (point))))))
 
 (defun x-parse-file-line-column (string)
   (let ((parts (split-string string ":")))

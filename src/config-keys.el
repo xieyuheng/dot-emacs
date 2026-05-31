@@ -58,13 +58,7 @@
 
 ;;;; cruise
 
-(defun window-> () (interactive) (other-window +1))
-(defun <-window () (interactive) (other-window -1))
-
-(global-set-key (kbd "C-o") 'window->)
-
-(global-set-key (kbd "M-=") 'window->)
-(global-set-key (kbd "M--") '<-window)
+(global-set-key (kbd "C-o") (lambda () (interactive) (other-window +1)))
 
 (global-set-key (kbd "C-x .") 'next-buffer)
 (global-set-key (kbd "C-x ,") 'previous-buffer)
@@ -75,16 +69,8 @@
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 
-;;;; window resizing
-
-;; (global-set-key (kbd "C-M-h") 'shrink-window-horizontally)
-;; (global-set-key (kbd "C-M-l") 'enlarge-window-horizontally)
-;; (global-set-key (kbd "C-M-j") 'shrink-window)
-;; (global-set-key (kbd "C-M-k") 'enlarge-window)
-
 ;;;; line wrap
 
-;; (global-set-key (kbd "C-M-g") 'global-visual-line-mode)
 (global-set-key (kbd "C-M-g") 'toggle-truncate-lines)
 
 ;;;; comment
@@ -105,9 +91,6 @@
 
 ;;;; view
 
-;; (global-set-key (kbd "<prior>") (lambda () (interactive) (scroll-left 1 1)))
-;; (global-set-key (kbd "<next>") (lambda () (interactive) (scroll-left -1 1)))
-
 (global-set-key (kbd "<prior>") (lambda () (interactive) (scroll-down 1)))
 (global-set-key (kbd "<next>") (lambda () (interactive) (scroll-up 1)))
 
@@ -118,7 +101,7 @@
 
 (setq case-fold-search nil)
 (global-set-key (kbd "M-i") 'query-replace)
-(global-set-key (kbd "<C-M-i>") 'replace-string)
+;; (global-set-key (kbd "<C-M-i>") 'replace-string)
 
 ;;;; whitespace
 
