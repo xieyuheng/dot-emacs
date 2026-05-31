@@ -1,11 +1,10 @@
 ;;;; prefix-command
 
-(define-prefix-command 'C-s-map)
-(global-set-key (kbd "C-s") 'C-s-map)
+(global-set-key (kbd "C-s") (make-sparse-keymap))
 
 ;;;; clone-frame
 
-(global-set-key (kbd "C-s C-s") 'clone-frame)
+(global-set-key (kbd "C-s C-c") 'clone-frame)
 
 ;;;; hippie-expand
 
@@ -66,7 +65,6 @@
 
 ;;;; edit
 
-(global-set-key (kbd "C-x <backspace>") 'delete-backward-char)
 (global-set-key (kbd "C-x C-h") 'mark-whole-buffer)
 (global-set-key (kbd "C-x k") 'x-kill-current-buffer)
 

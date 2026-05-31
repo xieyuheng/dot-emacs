@@ -22,7 +22,6 @@
 | `C-s C-x`         | 保存（备用键）       | `x-save-buffer`         | 无                         |
 | `C-x k`           | 关闭当前 buffer      | `x-kill-current-buffer` | `kill-buffer`              |
 | `C-x C-h`         | 全选                 | `mark-whole-buffer`     | `describe-prefix-bindings` |
-| `C-x <backspace>` | 删除前一个字符       | `delete-backward-char`  | `backward-kill-sentence`   |
 
 ### 窗口 / 导航
 
@@ -35,7 +34,6 @@
 | `M-n`     | 下一段落    | `forward-paragraph`  | 无               |
 | `<prior>` | 上滚 1 行   | `(scroll-down 1)`    | 半屏上翻         |
 | `<next>`  | 下滚 1 行   | `(scroll-up 1)`      | 半屏下翻         |
-| `C-s C-s` | 克隆 frame | `clone-frame` | 无 |
 
 ### 搜索 / 替换
 
@@ -58,18 +56,27 @@
 | `<C-f1>` | 光标处转 kebab-case  | `x-convert-to-kebab`     | 无                  |
 | `<C-f2>` | 光标处转 snake_case  | `x-convert-to-snake`     | 无                  |
 
-### 跳转 / Shell
+### C-s 前缀键
 
-| 快捷键    | 说明                      | 函数                             | 原生命令           |
-|-----------|---------------------------|----------------------------------|--------------------|
-| `C-s C-j` | 跳转到 `file:line:column` | `x-jump-to-file`                 | `C-s` 已改为前缀键 |
-| `C-s C-e` | 当前目录开 eshell         | `open-new-eshell-in-current-dir` | 同上               |
+> 以下 `C-s C-e`/`C-s C-s`/`C-s C-w` 遵循 toggle 模式：按一次进入，同键再按一次返回原 buffer。
 
-### 前缀键
+| 快捷键    | 说明                      | 函数                             | 原生命令                          |
+|-----------|---------------------------|----------------------------------|-----------------------------------|
+| `C-s`     | 自定义前缀键              | anonymous keymap                 | `isearch-forward`（已挪到 `C-t`） |
+| `C-s C-c` | 克隆 frame                | `clone-frame`                    | 无                                |
+| `C-s C-e` | 当前目录开 eshell         | `open-new-eshell-in-current-dir` | 无                                |
+| `C-s C-j` | 跳转 file:line:column     | `x-jump-to-file`                 | 无                                |
+| `C-s C-w` | 打开 ranger 文件管理器    | `ranger`                         | 无                                |
 
-| 快捷键 | 说明         | 函数      | 原生命令                          |
-|--------|--------------|-----------|-----------------------------------|
-| `C-s`  | 自定义前缀键 | `C-s-map` | `isearch-forward`（已挪到 `C-t`） |
+#### 局部覆盖
+
+| 快捷键    | 模式              | 说明               | 函数                          |
+|-----------|-------------------|--------------------|-------------------------------|
+| `C-s C-e` | eshell-mode        | 返回上一 buffer    | `previous-buffer`             |
+| `C-s C-s` | markdown-mode      | 编辑代码块         | `markdown-edit-code-block`    |
+| `C-s C-s` | edit-indirect-mode | 提交间接编辑       | `edit-indirect-commit`        |
+| `C-s C-w` | ranger-mode        | 下一窗口           | `other-window`                |
+| `C-s C-x` | ranger-mode        | 禁用 save-buffer   | `(lambda () (interactive))`   |
 
 ### 括号 / S-表达式
 
