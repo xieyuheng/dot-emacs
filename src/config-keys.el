@@ -60,11 +60,8 @@
 
 (global-set-key (kbd "C-o") (lambda () (interactive) (other-window +1)))
 
-(global-set-key (kbd "C-x .") 'next-buffer)
-(global-set-key (kbd "C-x ,") 'previous-buffer)
-
-(global-set-key (kbd "C-M-.") 'next-buffer)
-(global-set-key (kbd "C-M-,") 'previous-buffer)
+(global-set-key (kbd "C-.") 'next-buffer)
+(global-set-key (kbd "C-,") 'previous-buffer)
 
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
@@ -75,9 +72,13 @@
 
 ;;;; comment
 
-(global-set-key (kbd "C-.") 'comment-region)
-(global-set-key (kbd "C-,") 'uncomment-region)
-(global-set-key (kbd "M-;") 'comment-dwim)
+(defun x-comment-or-uncomment ()
+  (interactive)
+  (if (use-region-p)
+      (comment-or-uncomment-region (region-beginning) (region-end))
+    (comment-or-uncomment-region (line-beginning-position) (line-end-position))))
+
+(global-set-key (kbd "C-;") 'x-comment-or-uncomment)
 
 ;;;; edit
 
@@ -154,4 +155,4 @@
 ;;;; jump-to-file
 
 (require 'x-jump-to-file)
-(global-set-key (kbd "C-l") 'x-jump-to-file)
+(global-set-key (kbd "C-s C-j") 'x-jump-to-file)

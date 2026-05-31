@@ -12,15 +12,6 @@
 >
 > -- "Zen and The Art of Motorcycle Maintenance"
 
-## Usage
-
-```sh
-cd ~/.emacs.d
-git clone git@github.com:xieyuheng/dot-emacs.git
-cd dot-emacs
-cp dot-emacs.el ~/.emacs
-```
-
 ## License
 
 [GPLv3](LICENSE)
