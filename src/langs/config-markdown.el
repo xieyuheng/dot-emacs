@@ -19,3 +19,12 @@
 (add-to-list 'load-path "~/.emacs.d/deps/edit-indirect/")
 (require 'edit-indirect)
 (define-key edit-indirect-mode-map (kbd "C-s C-s") 'edit-indirect-commit)
+
+(add-to-list 'display-buffer-alist
+             '("\\*edit-indirect" display-buffer-same-window))
+(advice-add 'edit-indirect-commit :around
+            (lambda (orig-fun &rest args)
+              (let ((parent (overlay-buffer edit-indirect--overlay)))
+                (apply orig-fun args)
+                (with-current-buffer parent
+                  (save-buffer)))))
