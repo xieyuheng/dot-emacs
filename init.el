@@ -2,7 +2,7 @@
 
 ;;;; x
 
-(add-to-list 'load-path "~/.emacs.d/dot-emacs/src/x")
+(add-to-list 'load-path "~/.emacs.d/src/x")
 
 (require 'x-convert)
 (require 'x-cycle-brackets)
@@ -16,7 +16,7 @@
 
 ;;;; configs (no extra dependency)
 
-(add-to-list 'load-path "~/.emacs.d/dot-emacs/src")
+(add-to-list 'load-path "~/.emacs.d/src")
 
 (load "config-keys")
 (load "config-settings")
@@ -31,7 +31,7 @@
 
 ;;;; packages
 
-(add-to-list 'load-path "~/.emacs.d/dot-emacs/src/packages")
+(add-to-list 'load-path "~/.emacs.d/src/packages")
 
 (load "config-smex")
 (load "config-ranger")
@@ -41,7 +41,7 @@
 
 ;;;; langs
 
-(add-to-list 'load-path "~/.emacs.d/dot-emacs/src/langs")
+(add-to-list 'load-path "~/.emacs.d/src/langs")
 
 (load "config-scheme")
 (load "config-lisp")
