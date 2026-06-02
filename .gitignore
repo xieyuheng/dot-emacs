@@ -10,5 +10,13 @@ lib
 
 # emacs
 *~
-*#*
+*#
 .#*
+
+# deps and state
+deps/
+var/
+eln-cache/
+
+# personal
+scratch.md

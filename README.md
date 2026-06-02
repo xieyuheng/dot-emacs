@@ -1,4 +1,4 @@
-# My ~/.emacs file
+# My ~/.emacs.d
 
 > I suppose you could call that a personality.
 > Each machine has its own, unique personality
@@ -11,6 +11,14 @@
 > that is the real object of motorcycle maintenance.
 >
 > -- "Zen and The Art of Motorcycle Maintenance"
+
+## Installation
+
+```sh
+git clone git@github.com:xieyuheng/dot-emacs.git ~/.emacs.d
+cd ~/.emacs.d
+./install.sh
+```
 
 ## 键绑定
 

@@ -3,11 +3,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-DEPS_DIR="$SCRIPT_DIR/../deps"
-
-cd "$SCRIPT_DIR"
-
-cp init.el ~/.emacs.d/init.el
+DEPS_DIR="$SCRIPT_DIR/deps"
 
 echo "[deps] installing dependencies..."
 
