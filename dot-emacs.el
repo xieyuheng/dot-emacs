@@ -36,6 +36,7 @@
 (load "config-ranger")
 (load "config-region-state")
 (load "config-paredit")
+(load "config-watch-mode")
 
 ;;;; langs
 
