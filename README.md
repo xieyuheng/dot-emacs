@@ -1,4 +1,4 @@
-# My ~/.emacs.d
+# x-emacs
 
 > I suppose you could call that a personality.
 > Each machine has its own, unique personality
