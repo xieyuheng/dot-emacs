@@ -12,7 +12,7 @@
 
 ;;;; ido-vertical
 
-(add-to-list 'load-path "~/.emacs.d/deps/ido-vertical-mode/")
+(add-to-list 'load-path "~/.emacs.d/deps/ido-vertical-mode.el/")
 (require 'ido-vertical-mode)
 
 (ido-mode 1)
