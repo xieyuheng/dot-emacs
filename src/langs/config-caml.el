@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/caml-mode/")
+(add-to-list 'load-path "~/.emacs.d/deps/caml-mode/")
 
 (add-to-list 'auto-mode-alist '("\\.ml[iylp]?$" . caml-mode))
 (autoload 'caml-mode "caml" "Major mode for editing OCaml code." t)

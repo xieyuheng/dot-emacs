@@ -57,16 +57,12 @@
 (load "config-c")
 (load "config-python")
 (load "config-scala")
-(load "config-go")
-(load "config-rust")
-(load "config-lua")
+
 
 (load "config-uxn")
 (load "config-asm")
 
-(load "config-sml")
 (load "config-caml")
-(load "config-agda")
 
 ;; (setq gc-cons-threshold (* 100 1024 1024)) ;; 100 MB
 

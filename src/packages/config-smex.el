@@ -4,7 +4,7 @@
 
 ;;;; smex
 
-(add-to-list 'load-path "~/.emacs.d/smex/")
+(add-to-list 'load-path "~/.emacs.d/deps/smex/")
 (require 'smex)
 
 (global-set-key (kbd "M-x") 'smex)
@@ -12,7 +12,7 @@
 
 ;;;; ido-vertical
 
-(add-to-list 'load-path "~/.emacs.d/ido-vertical-mode/")
+(add-to-list 'load-path "~/.emacs.d/deps/ido-vertical-mode/")
 (require 'ido-vertical-mode)
 
 (ido-mode 1)

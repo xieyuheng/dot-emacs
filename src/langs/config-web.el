@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/web-mode/")
+(add-to-list 'load-path "~/.emacs.d/deps/web-mode/")
 (require 'web-mode)
 
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
@@ -29,7 +29,7 @@
 
 ;;;; emmet-mode -- quick expend
 
-(add-to-list 'load-path "~/.emacs.d/emmet-mode")
+(add-to-list 'load-path "~/.emacs.d/deps/emmet-mode")
 (require 'emmet-mode)
 
 (add-hook 'web-mode-hook 'emmet-mode)
@@ -48,7 +48,7 @@
 
 ;;;; wasm
 
-(add-to-list 'load-path "~/.emacs.d/wat-mode/")
+(add-to-list 'load-path "~/.emacs.d/deps/wat-mode/")
 (require 'wat-mode)
 (add-to-list 'auto-mode-alist '("\\.wat\\'" . wat-mode))
 (add-to-list 'auto-mode-alist '("\\.wast\\'" . wat-mode))

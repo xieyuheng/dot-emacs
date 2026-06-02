@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/ranger.el/")
+(add-to-list 'load-path "~/.emacs.d/deps/ranger.el/")
 (require 'ranger)
 
 (global-set-key (kbd "C-s C-w") 'ranger)

@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/markdown-mode/")
+(add-to-list 'load-path "~/.emacs.d/deps/markdown-mode/")
 
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
@@ -16,6 +16,6 @@
 
 ;;;; code block
 
-(add-to-list 'load-path "~/.emacs.d/edit-indirect/")
+(add-to-list 'load-path "~/.emacs.d/deps/edit-indirect/")
 (require 'edit-indirect)
 (define-key edit-indirect-mode-map (kbd "C-s C-s") 'edit-indirect-commit)

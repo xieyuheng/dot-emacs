@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/paredit")
+(add-to-list 'load-path "~/.emacs.d/deps/paredit")
 (require 'paredit)
 
 ;; do not insert space before (),

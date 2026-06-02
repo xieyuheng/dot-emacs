@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/typescript.el/")
+(add-to-list 'load-path "~/.emacs.d/deps/typescript.el/")
 (require 'typescript-mode)
 
 (add-hook

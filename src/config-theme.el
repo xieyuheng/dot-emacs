@@ -1,12 +1,12 @@
 ;;;; molokai-theme
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/molokai-theme/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/deps/molokai-theme/")
 
 ;; (load-theme 'molokai t)
 
 ;;;; doric-themes
 
-(add-to-list 'load-path (expand-file-name "themes/doric-themes" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "deps/doric-themes" user-emacs-directory))
 
 ;; ---- doric-themes (暗色) ----
 
@@ -38,7 +38,7 @@
 
 ;;;; modus-themes (standard-themes and ef-themes depends on this)
 
-(add-to-list 'load-path (expand-file-name "themes/modus-themes" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "deps/modus-themes" user-emacs-directory))
 
 ;; ---- modus-themes (暗色) ----
 
@@ -56,7 +56,7 @@
 
 ;;;; standard-themes
 
-(add-to-list 'load-path (expand-file-name "themes/standard-themes" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "deps/standard-themes" user-emacs-directory))
 
 ;; ---- standard-themes (暗色) ----
 
@@ -72,7 +72,7 @@
 
 ;;;; ef-themes
 
-(add-to-list 'load-path (expand-file-name "themes/ef-themes" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "deps/ef-themes" user-emacs-directory))
 
 ;; ---- ef-themes (暗色) ----
 

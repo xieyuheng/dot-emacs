@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/region-state/")
+(add-to-list 'load-path "~/.emacs.d/deps/region-state/")
 (require 'region-state)
 
 (region-state-mode)

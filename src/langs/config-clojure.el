@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/clojure-mode/")
+(add-to-list 'load-path "~/.emacs.d/deps/clojure-mode/")
 (require 'clojure-mode)
 
 (add-hook
