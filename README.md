@@ -15,7 +15,7 @@
 ## Installation
 
 ```sh
-git clone git@github.com:xieyuheng/dot-emacs.git ~/.emacs.d
+git clone git@github.com:xieyuheng/x-emacs.git ~/.emacs.d
 cd ~/.emacs.d
 ./install.sh
 ```
