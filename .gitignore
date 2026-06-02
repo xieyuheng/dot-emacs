@@ -17,6 +17,3 @@ lib
 deps/
 var/
 eln-cache/
-
-# personal
-scratch.md
