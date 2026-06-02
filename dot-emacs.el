@@ -11,6 +11,7 @@
 (require 'x-paste-from-clipboard)
 (require 'x-save-buffer)
 (require 'x-toggle-comment)
+(require 'x-delete-frame-or-exit)
 
 
 ;;;; configs (no extra dependency)

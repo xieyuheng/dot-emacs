@@ -5,6 +5,7 @@
 ;;;; clone-frame
 
 (global-set-key (kbd "C-s C-c") 'clone-frame)
+(global-set-key (kbd "C-x C-c") 'x-delete-frame-or-exit)
 
 ;;;; hippie-expand
 
