@@ -4,27 +4,30 @@
 
 (defvar x-sidebar--width 30 "Sidebar width in columns.")
 
+(defvar x-sidebar--state nil
+  "Alist of (frame . (buffer . window)) for each frame.")
+
+(defun x-sidebar--state-entry ()
+  (or (assq (selected-frame) x-sidebar--state)
+      (car (push (cons (selected-frame) (cons nil nil)) x-sidebar--state))))
+
 (defun x-sidebar--buffer ()
-  "Return the sidebar buffer for the current frame."
-  (frame-parameter nil 'x-sidebar--buffer))
+  (cadr (x-sidebar--state-entry)))
 
 (defun x-sidebar--set-buffer (buf)
-  "Set the sidebar buffer for the current frame."
-  (set-frame-parameter nil 'x-sidebar--buffer buf))
+  (setcar (cdr (x-sidebar--state-entry)) buf))
 
 (defun x-sidebar--window ()
-  "Return the sidebar window for the current frame."
-  (frame-parameter nil 'x-sidebar--window))
+  (cddr (x-sidebar--state-entry)))
 
 (defun x-sidebar--set-window (win)
-  "Set the sidebar window for the current frame."
-  (set-frame-parameter nil 'x-sidebar--window win))
+  (setcdr (cdr (x-sidebar--state-entry)) win))
 
 (defun x-sidebar ()
   "Toggle a dired sidebar on the left."
   (interactive)
   (let ((win (x-sidebar--window)))
-    (if (and win (window-live-p win) (eq (window-frame win) (selected-frame)))
+    (if (and win (window-live-p win))
         (progn
           (delete-window win)
           (x-sidebar--set-window nil))
@@ -104,12 +107,8 @@
           (set-window-buffer main-win buf))))))
 
 (defun x-sidebar--main-window ()
-  (let ((frame (selected-frame))
-        (sbar-win (x-sidebar--window)))
-    (cl-find-if (lambda (w)
-                  (and (not (eq w sbar-win))
-                       (eq (window-frame w) frame)))
-                (window-list))))
+  (let ((cur (selected-window)))
+    (cl-find-if (lambda (w) (not (eq w cur))) (window-list))))
 
 (defun x-sidebar--switch-to-main ()
   "Switch focus to the main window."
@@ -117,11 +116,6 @@
   (let ((main-win (x-sidebar--main-window)))
     (when main-win
       (select-window main-win))))
-
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (set-frame-parameter frame 'x-sidebar--buffer nil)
-            (set-frame-parameter frame 'x-sidebar--window nil)))
 
 (provide 'x-sidebar)
 ;;; x-sidebar.el ends here
