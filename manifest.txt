@@ -13,7 +13,6 @@ git@github.com:jrblevin/markdown-mode.git
 git@github.com:protesilaos/modus-themes.git
 git@github.com:xieyuheng/molokai-theme.git
 git@github.com:emacsmirror/paredit.git
-git@github.com:xieyuheng/ranger.el.git
 git@github.com:xuchunyang/region-state.el.git
 git@github.com:rust-lang/rust-mode.git
 git@github.com:nonsequitur/smex.git
