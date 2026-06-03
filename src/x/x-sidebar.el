@@ -118,5 +118,10 @@
     (when main-win
       (select-window main-win))))
 
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (set-frame-parameter frame 'x-sidebar--buffer nil)
+            (set-frame-parameter frame 'x-sidebar--window nil)))
+
 (provide 'x-sidebar)
 ;;; x-sidebar.el ends here
