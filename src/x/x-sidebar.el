@@ -19,7 +19,6 @@
         (x-sidebar--setup)))
     (let ((win (split-window (selected-window) (- x-sidebar--width) 'left)))
       (set-window-buffer win x-sidebar--buffer)
-      (set-window-dedicated-p win t)
       (setq x-sidebar--window win))
     (select-window x-sidebar--window)
     (x-sidebar--preview)))
