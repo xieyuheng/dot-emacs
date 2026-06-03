@@ -31,7 +31,7 @@
   (interactive)
   (let ((win (x-sidebar--find-window)))
     (if win
-        (delete-window win)
+        (select-window win)
       (let ((buf (dired-noselect default-directory)))
         (with-current-buffer buf
           (x-sidebar--setup))
