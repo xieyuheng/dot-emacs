@@ -2,26 +2,43 @@
 
 (require 'cl-lib)
 
-(defvar x-sidebar--buffer nil "The sidebar dired buffer.")
-(defvar x-sidebar--window nil "The sidebar window.")
 (defvar x-sidebar--width 30 "Sidebar width in columns.")
+
+(defun x-sidebar--buffer (setq)
+  "Return the sidebar buffer for the current frame."
+  (frame-parameter nil 'x-sidebar--buffer))
+
+(defun x-sidebar--set-buffer (buf)
+  "Set the sidebar buffer for the current frame."
+  (set-frame-parameter nil 'x-sidebar--buffer buf))
+
+(defun x-sidebar--window (&optional setq)
+  "Return the sidebar window for the current frame."
+  (frame-parameter nil 'x-sidebar--window))
+
+(defun x-sidebar--set-window (win)
+  "Set the sidebar window for the current frame."
+  (set-frame-parameter nil 'x-sidebar--window win))
 
 (defun x-sidebar ()
   "Toggle a dired sidebar on the left."
   (interactive)
-  (if (and x-sidebar--window (window-live-p x-sidebar--window))
-      (progn
-        (delete-window x-sidebar--window)
-        (setq x-sidebar--window nil))
-    (unless (and x-sidebar--buffer (buffer-live-p x-sidebar--buffer))
-      (setq x-sidebar--buffer (dired-noselect default-directory))
-      (with-current-buffer x-sidebar--buffer
-        (x-sidebar--setup)))
-    (let ((win (split-window (selected-window) (- x-sidebar--width) 'left)))
-      (set-window-buffer win x-sidebar--buffer)
-      (setq x-sidebar--window win))
-    (select-window x-sidebar--window)
-    (x-sidebar--preview)))
+  (let ((win (x-sidebar--window)))
+    (if (and win (window-live-p win) (eq (window-frame win) (selected-frame)))
+        (progn
+          (delete-window win)
+          (x-sidebar--set-window nil))
+      (let ((buf (x-sidebar--buffer)))
+        (unless (and buf (buffer-live-p buf))
+          (setq buf (dired-noselect default-directory))
+          (with-current-buffer buf
+            (x-sidebar--setup))
+          (x-sidebar--set-buffer buf))
+        (let ((new-win (split-window (selected-window) (- x-sidebar--width) 'left)))
+          (set-window-buffer new-win buf)
+          (x-sidebar--set-window new-win))
+        (select-window (x-sidebar--window))
+        (x-sidebar--preview)))))
 
 (defun x-sidebar--setup ()
   (rename-buffer (generate-new-buffer-name "*x-sidebar*"))
@@ -51,7 +68,7 @@
         (when main-win
           (select-window main-win)
           (find-file file)
-          (select-window x-sidebar--window))))))
+          (select-window (x-sidebar--window)))))))
 
 (defun x-sidebar--enter-dir (dir)
   "Enter DIR in the sidebar."
@@ -60,7 +77,7 @@
                   (dired-noselect full))))
     (with-current-buffer buf
       (x-sidebar--setup))
-    (setq x-sidebar--buffer buf)
+    (x-sidebar--set-buffer buf)
     (setq-local x-sidebar--last-preview nil)
     (set-window-buffer (selected-window) buf)
     (x-sidebar--preview)))
@@ -89,8 +106,12 @@
           (set-window-buffer main-win buf))))))
 
 (defun x-sidebar--main-window ()
-  (cl-find-if (lambda (w) (not (eq w x-sidebar--window)))
-              (window-list)))
+  (let ((frame (selected-frame))
+        (sbar-win (x-sidebar--window)))
+    (cl-find-if (lambda (w)
+                  (and (not (eq w sbar-win))
+                       (eq (window-frame w) frame)))
+                (window-list))))
 
 (defun x-sidebar--switch-to-main ()
   "Switch focus to the main window."
