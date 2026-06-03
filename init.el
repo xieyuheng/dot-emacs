@@ -12,7 +12,6 @@
 (require 'x-save-buffer)
 (require 'x-toggle-comment)
 (require 'x-delete-frame-or-exit)
-(require 'x-dired-sidebar)
 
 
 ;;;; configs (no extra dependency)
@@ -35,6 +34,7 @@
 (add-to-list 'load-path "~/.emacs.d/src/packages")
 
 (load "config-smex")
+(load "config-ranger")
 (load "config-region-state")
 (load "config-paredit")
 (load "config-warden-mode")
