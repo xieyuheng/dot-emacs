@@ -36,6 +36,7 @@
         (with-current-buffer buf
           (x-sidebar--setup))
         (x-sidebar--set-buffer buf)
+        (delete-other-windows)
         (let ((new-win (split-window (selected-window) (- x-sidebar--width) 'left)))
           (set-window-buffer new-win buf))
         (select-window (x-sidebar--find-window))
