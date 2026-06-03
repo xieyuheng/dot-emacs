@@ -35,6 +35,7 @@
 (add-to-list 'load-path "~/.emacs.d/src/packages")
 
 (load "config-smex")
+(load "config-fzf")
 (load "config-region-state")
 (load "config-paredit")
 (load "config-warden-mode")
