@@ -123,6 +123,10 @@
  (lambda ()
    (define-key isearch-mode-map (kbd "C-t") 'isearch-repeat-forward)))
 
+;;;;; project-find-file
+
+(global-set-key (kbd "C-s C-f") 'project-find-file)
+
 ;;;; jump-to-file
 
 (global-set-key (kbd "C-s C-j") 'x-jump-to-file)
