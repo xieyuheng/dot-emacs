@@ -4,7 +4,7 @@
 
 (defvar x-sidebar--width 30 "Sidebar width in columns.")
 
-(defun x-sidebar--buffer (setq)
+(defun x-sidebar--buffer ()
   "Return the sidebar buffer for the current frame."
   (frame-parameter nil 'x-sidebar--buffer))
 
@@ -12,7 +12,7 @@
   "Set the sidebar buffer for the current frame."
   (set-frame-parameter nil 'x-sidebar--buffer buf))
 
-(defun x-sidebar--window (&optional setq)
+(defun x-sidebar--window ()
   "Return the sidebar window for the current frame."
   (frame-parameter nil 'x-sidebar--window))
 
