@@ -1,7 +1,7 @@
 (add-to-list 'load-path "~/.emacs.d/deps/ranger.el/")
 (require 'ranger)
 
-(global-set-key (kbd "C-s C-w") 'ranger)
+;; (global-set-key (kbd "C-s C-w") 'ranger)
 
 (add-hook
  'dired-mode-hook
