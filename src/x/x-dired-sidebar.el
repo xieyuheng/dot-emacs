@@ -36,16 +36,36 @@
   (local-set-key (kbd "<down>") 'dired-next-line)
   (local-set-key (kbd "k") 'dired-previous-line)
   (local-set-key (kbd "<up>") 'dired-previous-line)
-  (local-set-key (kbd "h") 'dired-up-directory)
-  (local-set-key (kbd "<left>") 'dired-up-directory))
+  (local-set-key (kbd "h") 'x-dired-sidebar--up-directory)
+  (local-set-key (kbd "<left>") 'x-dired-sidebar--up-directory))
 
 (defun x-dired-sidebar--ret ()
   "RET handler: enter directory in sidebar or open file in main window."
   (interactive)
   (let ((file (dired-get-file-for-visit)))
     (if (file-directory-p file)
-        (dired-find-file)
+        (x-dired-sidebar--enter-dir file)
       (dired-find-file-other-window))))
+
+(defun x-dired-sidebar--enter-dir (dir)
+  (let* ((full (file-name-as-directory (expand-file-name dir)))
+         (buf (current-buffer)))
+    (with-current-buffer buf
+      (let ((inhibit-read-only t))
+        (kill-all-local-variables)
+        (dired full dired-listing-switches)
+        (rename-buffer "*x-dired-sidebar*")
+        (dired-hide-details-mode 1)
+        (x-dired-sidebar--setup-keys)
+        (add-hook 'post-command-hook #'x-dired-sidebar--preview nil t)
+        (setq x-dired-sidebar--last-preview nil))
+      (setq x-dired-sidebar--buffer buf))))
+
+(defun x-dired-sidebar--up-directory ()
+  (interactive)
+  (let ((parent (file-name-directory (directory-file-name default-directory))))
+    (when parent
+      (x-dired-sidebar--enter-dir parent))))
 
 (defvar-local x-dired-sidebar--last-preview nil)
 
