@@ -30,10 +30,14 @@
 (defun x-dired-sidebar--setup-keys ()
   (local-set-key (kbd "RET") 'x-dired-sidebar--ret)
   (local-set-key (kbd "l") 'x-dired-sidebar--ret)
+  (local-set-key (kbd "<right>") 'x-dired-sidebar--ret)
   (local-set-key (kbd "C-s C-w") 'other-window)
   (local-set-key (kbd "j") 'dired-next-line)
+  (local-set-key (kbd "<down>") 'dired-next-line)
   (local-set-key (kbd "k") 'dired-previous-line)
-  (local-set-key (kbd "h") 'dired-up-directory))
+  (local-set-key (kbd "<up>") 'dired-previous-line)
+  (local-set-key (kbd "h") 'dired-up-directory)
+  (local-set-key (kbd "<left>") 'dired-up-directory))
 
 (defun x-dired-sidebar--ret ()
   "RET handler: enter directory in sidebar or open file in main window."
