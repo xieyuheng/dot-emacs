@@ -97,7 +97,3 @@
 ;;;; dired
 
 (add-hook 'dired-mode-hook 'dired-omit-mode)
-
-;;;; fido-vertical-mode
-
-(fido-vertical-mode +1)
