@@ -12,6 +12,7 @@
 (require 'x-save-buffer)
 (require 'x-toggle-comment)
 (require 'x-delete-frame-or-exit)
+(require 'x-sidebar)
 
 
 ;;;; configs (no extra dependency)
