@@ -5,40 +5,40 @@
 (defvar x-sidebar--width 30 "Sidebar width in columns.")
 
 (defvar x-sidebar--state nil
-  "Alist of (frame . (buffer . window)) for each frame.")
+  "Alist of (frame . buffer) for each frame.")
 
 (defun x-sidebar--state-entry ()
   (or (assq (selected-frame) x-sidebar--state)
-      (car (push (cons (selected-frame) (cons nil nil)) x-sidebar--state))))
+      (car (push (cons (selected-frame) nil) x-sidebar--state))))
 
 (defun x-sidebar--buffer ()
-  (cadr (x-sidebar--state-entry)))
+  (cdr (x-sidebar--state-entry)))
 
 (defun x-sidebar--set-buffer (buf)
-  (setcar (cdr (x-sidebar--state-entry)) buf))
+  (setcdr (x-sidebar--state-entry) buf))
 
-(defun x-sidebar--window ()
-  (cddr (x-sidebar--state-entry)))
-
-(defun x-sidebar--set-window (win)
-  (setcdr (cdr (x-sidebar--state-entry)) win))
+(defun x-sidebar--find-window ()
+  "Find a *x-sidebar* window on the current frame, or nil."
+  (let ((frame (selected-frame)))
+    (cl-find-if (lambda (w)
+                  (and (eq (window-frame w) frame)
+                       (string-prefix-p "*x-sidebar*"
+                         (buffer-name (window-buffer w)))))
+                (window-list))))
 
 (defun x-sidebar ()
   "Toggle a dired sidebar on the left."
   (interactive)
-  (let ((win (x-sidebar--window)))
-    (if (and win (window-live-p win))
-        (progn
-          (delete-window win)
-          (x-sidebar--set-window nil))
+  (let ((win (x-sidebar--find-window)))
+    (if win
+        (delete-window win)
       (let ((buf (dired-noselect default-directory)))
         (with-current-buffer buf
           (x-sidebar--setup))
         (x-sidebar--set-buffer buf)
         (let ((new-win (split-window (selected-window) (- x-sidebar--width) 'left)))
-          (set-window-buffer new-win buf)
-          (x-sidebar--set-window new-win))
-        (select-window (x-sidebar--window))
+          (set-window-buffer new-win buf))
+        (select-window (x-sidebar--find-window))
         (x-sidebar--preview)))))
 
 (defun x-sidebar--setup ()
@@ -69,7 +69,7 @@
         (when main-win
           (select-window main-win)
           (find-file file)
-          (select-window (x-sidebar--window)))))))
+          (select-window (x-sidebar--find-window)))))))
 
 (defun x-sidebar--enter-dir (dir)
   "Enter DIR in the sidebar."
