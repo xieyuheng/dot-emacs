@@ -25,7 +25,7 @@
     (x-sidebar--preview)))
 
 (defun x-sidebar--setup ()
-  (rename-buffer "*x-sidebar*")
+  (rename-buffer (generate-new-buffer-name "*x-sidebar*"))
   (dired-hide-details-mode 1)
   (x-sidebar--setup-keys)
   (add-hook 'post-command-hook #'x-sidebar--preview nil t))
