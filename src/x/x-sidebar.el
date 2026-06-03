@@ -28,12 +28,10 @@
         (progn
           (delete-window win)
           (x-sidebar--set-window nil))
-      (let ((buf (x-sidebar--buffer)))
-        (unless (and buf (buffer-live-p buf))
-          (setq buf (dired-noselect default-directory))
-          (with-current-buffer buf
-            (x-sidebar--setup))
-          (x-sidebar--set-buffer buf))
+      (let ((buf (dired-noselect default-directory)))
+        (with-current-buffer buf
+          (x-sidebar--setup))
+        (x-sidebar--set-buffer buf)
         (let ((new-win (split-window (selected-window) (- x-sidebar--width) 'left)))
           (set-window-buffer new-win buf)
           (x-sidebar--set-window new-win))
