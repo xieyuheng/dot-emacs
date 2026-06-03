@@ -109,7 +109,7 @@
 (defun x-sidebar--main-window ()
   (let ((cur (selected-window)))
     (or (cl-find-if (lambda (w) (not (eq w cur))) (window-list))
-        (split-window cur nil 'right))))
+        (split-window cur x-sidebar--width 'right))))
 
 (defun x-sidebar--switch-to-main ()
   "Switch focus to the main window."
