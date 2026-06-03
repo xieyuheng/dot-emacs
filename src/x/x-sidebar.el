@@ -46,6 +46,7 @@
   (rename-buffer (generate-new-buffer-name "*x-sidebar*"))
   (dired-hide-details-mode 1)
   (x-sidebar--setup-keys)
+  (auto-revert-mode 1)
   (add-hook 'post-command-hook #'x-sidebar--preview nil t))
 
 (defun x-sidebar--setup-keys ()
