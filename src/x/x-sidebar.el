@@ -109,7 +109,14 @@
 (defun x-sidebar--main-window ()
   (let ((cur (selected-window)))
     (or (cl-find-if (lambda (w) (not (eq w cur))) (window-list))
-        (split-window cur x-sidebar--width 'right))))
+        (let* ((file (ignore-errors (dired-get-file-for-visit)))
+               (buf (cond (file (if (file-directory-p file)
+                                    (dired-noselect file)
+                                  (find-file-noselect file)))
+                          (t (other-buffer (current-buffer)))))
+               (new-win (split-window cur x-sidebar--width 'right)))
+          (set-window-buffer new-win buf)
+          new-win))))
 
 (defun x-sidebar--switch-to-main ()
   "Switch focus to the main window."
