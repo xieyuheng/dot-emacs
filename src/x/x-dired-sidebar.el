@@ -52,12 +52,11 @@
 (defun x-dired-sidebar--preview ()
   "Preview the file at point in the main window."
   (let ((file (ignore-errors (dired-get-file-for-visit))))
-    (when (and file (not (equal file x-dired-sidebar--last-preview)))
+    (when (and file
+               (not (file-directory-p file))
+               (not (equal file x-dired-sidebar--last-preview)))
       (setq x-dired-sidebar--last-preview file)
-      (let ((buffer (if (file-directory-p file)
-                        (dired-noselect file)
-                      (find-file-noselect file))))
-        (x-dired-sidebar--display-in-other-window buffer)))))
+      (x-dired-sidebar--display-in-other-window (find-file-noselect file)))))
 
 (defun x-dired-sidebar--display-in-other-window (buffer)
   (let* ((win (selected-window))
