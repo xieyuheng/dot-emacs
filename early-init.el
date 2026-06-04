@@ -6,5 +6,4 @@
 (setq auto-save-list-file-prefix (locate-user-emacs-file "var/auto-save-list/"))
 (setq backup-directory-alist `(("." . ,(locate-user-emacs-file "var/backups/"))))
 (setq eshell-directory-name (locate-user-emacs-file "var/eshell/"))
-(setq ido-save-directory-list-file (locate-user-emacs-file "var/ido.last"))
-(setq smex-save-file (locate-user-emacs-file "var/smex-items"))
+(setq ivy-history-file (locate-user-emacs-file "var/ivy-history"))

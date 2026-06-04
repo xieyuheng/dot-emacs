@@ -116,12 +116,7 @@
 
 ;;;; search
 
-(global-set-key (kbd "C-t") 'isearch-forward)
-
-(add-hook
- 'isearch-mode-hook
- (lambda ()
-   (define-key isearch-mode-map (kbd "C-t") 'isearch-repeat-forward)))
+(global-set-key (kbd "C-t") 'swiper)
 
 ;;;;; jump-to-file
 
