@@ -7,7 +7,4 @@
 
 (setq ivy-wrap t)
 
-(global-set-key (kbd "C-x C-f") 'counsel-git)
-(global-set-key (kbd "C-x C-g") 'counsel-git-grep)
-
 (ivy-mode 1)
