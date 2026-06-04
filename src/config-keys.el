@@ -54,8 +54,8 @@
 (global-set-key (kbd "C-.") 'next-buffer)
 (global-set-key (kbd "C-,") 'previous-buffer)
 
-(global-set-key (kbd "C-s .") 'next-buffer)
-(global-set-key (kbd "C-s ,") 'previous-buffer)
+(global-set-key (kbd "C-x .") 'next-buffer)
+(global-set-key (kbd "C-x ,") 'previous-buffer)
 
 (global-set-key (kbd "C-M-.") 'next-buffer)
 (global-set-key (kbd "C-M-,") 'previous-buffer)

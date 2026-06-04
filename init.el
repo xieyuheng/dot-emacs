@@ -11,6 +11,7 @@
 (require 'x-toggle-comment)
 (require 'x-delete-frame-or-exit)
 (require 'x-sidebar)
+(require 'x-modeline)
 
 ;;;; packages
 
