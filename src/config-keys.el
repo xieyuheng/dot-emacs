@@ -117,8 +117,9 @@
 ;;;; search
 
 (global-set-key (kbd "C-r") 'swiper)
-(global-set-key (kbd "C-t") 'counsel-git-grep)
+(global-set-key (kbd "C-t") 'counsel-git)
 (global-set-key (kbd "C-x C-f") 'counsel-git)
+(global-set-key (kbd "C-x f") 'counsel-git-grep)
 
 ;;;;; jump-to-file
 
