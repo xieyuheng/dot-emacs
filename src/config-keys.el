@@ -116,10 +116,10 @@
 
 ;;;; search
 
-(global-set-key (kbd "C-r") 'swiper)
-(define-key swiper-map (kbd "C-r") 'swiper-C-s)
+(global-set-key (kbd "C-t") 'swiper)
+(define-key swiper-map (kbd "C-t") 'swiper-C-s)
 
-(global-set-key (kbd "C-t") 'counsel-git)
+(global-set-key (kbd "C-r") 'counsel-git)
 (global-set-key (kbd "C-x C-f") 'counsel-git)
 (global-set-key (kbd "C-x f") 'counsel-git-grep)
 
