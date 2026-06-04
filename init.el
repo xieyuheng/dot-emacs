@@ -1,5 +1,3 @@
-;; (setq gc-cons-threshold most-positive-fixnum)
-
 ;;;; x
 
 (add-to-list 'load-path "~/.emacs.d/src/x")
@@ -14,22 +12,6 @@
 (require 'x-delete-frame-or-exit)
 (require 'x-sidebar)
 
-
-;;;; configs (no extra dependency)
-
-(add-to-list 'load-path "~/.emacs.d/src")
-
-(load "config-keys")
-(load "config-settings")
-(load "config-fonts")
-(load "config-initial-buffer")
-(load "config-emacs-server")
-(load "config-eshell")
-
-;;;; theme
-
-(load "config-theme")
-
 ;;;; packages
 
 (add-to-list 'load-path "~/.emacs.d/src/packages")
@@ -39,6 +21,18 @@
 (load "config-paredit")
 (load "config-warden-mode")
 
+;;;; configs
+
+(add-to-list 'load-path "~/.emacs.d/src")
+
+(load "config-keys")
+(load "config-settings")
+(load "config-fonts")
+(load "config-initial-buffer")
+(load "config-emacs-server")
+(load "config-eshell")
+(load "config-theme")
+
 ;;;; langs
 
 (add-to-list 'load-path "~/.emacs.d/src/langs")
@@ -47,22 +41,13 @@
 (load "config-lisp")
 (load "config-meta-lisp")
 (load "config-clojure")
-
 (load "config-typescript")
 (load "config-web")
 (load "config-markdown")
 (load "config-yaml")
-
 (load "config-c")
 (load "config-python")
 (load "config-scala")
-
-
 (load "config-uxn")
 (load "config-asm")
-
 (load "config-caml")
-
-;; (setq gc-cons-threshold (* 100 1024 1024)) ;; 100 MB
-
-(garbage-collect)

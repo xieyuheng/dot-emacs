@@ -118,9 +118,8 @@
 
 (global-set-key (kbd "C-r") 'swiper)
 
-(with-eval-after-load 'ivy
-  (define-key ivy-minibuffer-map (kbd "C-s") 'ivy-previous-line-or-history)
-  (define-key ivy-minibuffer-map (kbd "C-r") 'ivy-next-line-or-history))
+(define-key ivy-minibuffer-map (kbd "C-s") 'ivy-previous-line-or-history)
+(define-key ivy-minibuffer-map (kbd "C-r") 'ivy-next-line-or-history)
 
 (global-set-key (kbd "C-t") 'counsel-git)
 (global-set-key (kbd "C-x C-f") 'counsel-git)
