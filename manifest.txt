@@ -23,3 +23,10 @@ git@github.com:fxbois/web-mode.git
 git@github.com:yoshiki/yaml-mode.git
 git@github.com:abo-abo/swiper.git
 git@github.com:xieyuheng/meta-lisp-mode.git
+git@github.com:magit/magit.git
+git@github.com:magit/with-editor.git
+git@github.com:magit/transient.git
+git@github.com:emacs-compat/compat.git
+git@github.com:tarsius/cond-let.git
+git@github.com:tarsius/llama.git
+git@github.com:akermu/emacs-libvterm.git
