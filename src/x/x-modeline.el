@@ -8,7 +8,7 @@
   :group 'x-modeline)
 
 (defface x-modeline-status-active
-  '((t (:inherit x-modeline-active :background "#d0d0d0" :foreground "#000000")))
+  '((t (:inherit x-modeline-active :background "#e8e8e8" :foreground "#000000")))
   "Face for buffer status indicator when window is active."
   :group 'x-modeline)
 
