@@ -34,9 +34,7 @@
         (let ((dir default-directory))
           (select-window win)
           (x-sidebar--enter-dir dir))
-      (let ((buf (x-sidebar--fresh-dired-buffer default-directory)))
-        (with-current-buffer buf
-          (x-sidebar--setup))
+      (let ((buf (x-sidebar--make-buffer default-directory)))
         (x-sidebar--set-buffer buf)
         (delete-other-windows)
         (let ((new-win (split-window (selected-window) (- x-sidebar--width) 'left)))
@@ -57,12 +55,32 @@
     (dired-noselect (file-name-as-directory (expand-file-name dir)))))
 
 (defun x-sidebar--setup ()
-  (rename-buffer (generate-new-buffer-name "*x-sidebar*"))
   (dired-hide-details-mode 1)
   (x-sidebar--setup-keys)
   (auto-revert-mode 1)
   (add-hook 'post-command-hook #'x-sidebar--preview nil t)
   (x-sidebar--remove-from-dired-buffers))
+
+(defun x-sidebar--make-buffer (dir)
+  (let ((buf (x-sidebar--fresh-dired-buffer dir)))
+    (with-current-buffer buf
+      (rename-buffer (generate-new-buffer-name "*x-sidebar*"))
+      (x-sidebar--setup))
+    buf))
+
+(defun x-sidebar--get-or-create-buffer (dir)
+  (let* ((full (file-name-as-directory (expand-file-name dir)))
+         (my-buf (x-sidebar--buffer)))
+    (if (and my-buf (buffer-live-p my-buf))
+        (progn
+          (with-current-buffer my-buf
+            (unless (string= (expand-file-name dired-directory) full)
+              (setq-local dired-directory full)
+              (setq-local default-directory full)
+              (revert-buffer))
+            (x-sidebar--remove-from-dired-buffers))
+          my-buf)
+      (x-sidebar--make-buffer dir))))
 
 (defun x-sidebar--setup-keys ()
   (local-set-key (kbd "RET") 'x-sidebar--ret)
@@ -90,11 +108,7 @@
 
 (defun x-sidebar--enter-dir (dir)
   "Enter DIR in the sidebar."
-  (let* ((full (file-name-as-directory (expand-file-name dir)))
-         (buf (or (car (dired-buffers-for-dir full))
-                  (dired-noselect full))))
-    (with-current-buffer buf
-      (x-sidebar--setup))
+  (let ((buf (x-sidebar--get-or-create-buffer dir)))
     (x-sidebar--set-buffer buf)
     (setq-local x-sidebar--last-preview nil)
     (set-window-buffer (selected-window) buf)
