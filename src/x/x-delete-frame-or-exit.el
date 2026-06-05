@@ -1,9 +1,8 @@
 (defun x-delete-frame-or-exit ()
   (interactive)
   (if (> (length (frame-list)) 1)
-      (let ((frame (selected-frame)))
-        (save-some-buffers)
-        (delete-frame frame))
-    (save-buffers-kill-emacs)))
+      (delete-frame (selected-frame))
+    (let ((kill-emacs-query-functions nil))
+      (kill-emacs))))
 
 (provide 'x-delete-frame-or-exit)
