@@ -2,6 +2,9 @@
 
 (add-to-list 'load-path "~/.emacs.d/deps/dirvish/")
 
+(setq dirvish-cache-dir
+      (expand-file-name "var/dirvish/" user-emacs-directory))
+
 (require 'dirvish)
 
 (define-key dired-mode-map (kbd "h") 'dired-up-directory)
