@@ -96,6 +96,7 @@
 
 ;;;; dired
 
+(setq dired-free-space nil)
 (add-hook 'dired-mode-hook 'dired-omit-mode)
 (define-key dired-mode-map (kbd "C-o")
             (lambda () (interactive) (other-window +1)))
