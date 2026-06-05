@@ -1,4 +1,4 @@
-;;; x-sidebar.el --- Simple dired sidebar -*- lexical-binding: t; -*-
+;;; x-sidebar.el --- Simple file sidebar -*- lexical-binding: t; -*-
 
 (require 'cl-lib)
 
@@ -6,6 +6,77 @@
 
 (defvar x-sidebar--state nil
   "Alist of (frame . buffer) for each frame.")
+
+(defvar x-sidebar-mode-map
+  (let ((map (make-sparse-keymap)))
+    (set-keymap-parent map special-mode-map)
+    (define-key map (kbd "RET") 'x-sidebar--ret)
+    (define-key map (kbd "l") 'x-sidebar--ret)
+    (define-key map (kbd "<right>") 'x-sidebar--ret)
+    (define-key map (kbd "C-s C-w") 'x-sidebar--switch-to-main)
+    (define-key map (kbd "j") 'next-line)
+    (define-key map (kbd "<down>") 'next-line)
+    (define-key map (kbd "k") 'previous-line)
+    (define-key map (kbd "<up>") 'previous-line)
+    (define-key map (kbd "h") 'x-sidebar--up-directory)
+    (define-key map (kbd "<left>") 'x-sidebar--up-directory)
+    map)
+  "Keymap for x-sidebar-mode.")
+
+(define-derived-mode x-sidebar-mode special-mode "XSidebar"
+  (setq-local truncate-lines t)
+  (setq-local revert-buffer-function #'x-sidebar--revert)
+  (setq-local buffer-stale-function #'x-sidebar--buffer-stale-p)
+  (auto-revert-mode 1)
+  (add-hook 'post-command-hook #'x-sidebar--preview nil t))
+
+(defvar-local x-sidebar--last-mtime nil)
+(defvar-local x-sidebar--last-preview nil)
+
+(defun x-sidebar--buffer-stale-p (&optional _noconfirm)
+  (let ((attrs (file-attributes default-directory)))
+    (and attrs
+         (not (equal (file-attribute-modification-time attrs)
+                     x-sidebar--last-mtime)))))
+
+(defun x-sidebar--revert (&optional _ignore-auto _noconfirm)
+  (let ((current-entry (x-sidebar--entry-at-point)))
+    (x-sidebar--list-directory default-directory)
+    (when current-entry
+      (x-sidebar--goto-entry current-entry))
+    (goto-char (min (point) (point-max)))))
+
+(defun x-sidebar--list-directory (dir)
+  (let* ((full-dir (file-name-as-directory (expand-file-name dir)))
+         (entries (directory-files full-dir t directory-files-no-dot-files-regexp))
+         (sorted (sort entries (lambda (a b)
+                                 (let ((da (file-directory-p a))
+                                       (db (file-directory-p b)))
+                                   (if (eq da db)
+                                       (string< a b)
+                                     da)))))
+         (inhibit-read-only t))
+    (erase-buffer)
+    (dolist (full sorted)
+      (let ((start (point))
+            (name (file-name-nondirectory (directory-file-name full))))
+        (insert (if (file-directory-p full) "/ " "  ")
+                name
+                "\n")
+        (put-text-property start (point) 'x-sidebar-path full)))
+    (goto-char (point-min))
+    (setq-local default-directory full-dir)
+    (setq x-sidebar--last-mtime
+          (file-attribute-modification-time
+           (file-attributes full-dir)))))
+
+(defun x-sidebar--entry-at-point ()
+  (get-text-property (line-beginning-position) 'x-sidebar-path))
+
+(defun x-sidebar--goto-entry (path)
+  (let ((pos (text-property-any (point-min) (point-max) 'x-sidebar-path path)))
+    (when pos
+      (goto-char pos))))
 
 (defun x-sidebar--state-entry ()
   (or (assq (selected-frame) x-sidebar--state)
@@ -18,12 +89,11 @@
   (setcdr (x-sidebar--state-entry) buf))
 
 (defun x-sidebar--find-window ()
-  "Find a *x-sidebar* window on the current frame, or nil."
   (let ((frame (selected-frame)))
     (cl-find-if (lambda (w)
                   (and (eq (window-frame w) frame)
                        (string-prefix-p "*x-sidebar*"
-                                        (buffer-name (window-buffer w)))))
+                                         (buffer-name (window-buffer w)))))
                 (window-list))))
 
 (defun x-sidebar ()
@@ -42,30 +112,11 @@
         (select-window (x-sidebar--find-window))
         (x-sidebar--preview)))))
 
-(defun x-sidebar--remove-from-dired-buffers ()
-  (setq dired-buffers
-        (cl-remove-if (lambda (entry)
-                        (let ((buf (if (consp entry) (cdr entry) entry)))
-                          (and (buffer-live-p buf)
-                               (string-prefix-p "*x-sidebar*" (buffer-name buf)))))
-                      dired-buffers)))
-
-(defun x-sidebar--fresh-dired-buffer (dir)
-  (let ((dired-buffers nil))
-    (dired-noselect (file-name-as-directory (expand-file-name dir)))))
-
-(defun x-sidebar--setup ()
-  (dired-hide-details-mode 1)
-  (x-sidebar--setup-keys)
-  (auto-revert-mode 1)
-  (add-hook 'post-command-hook #'x-sidebar--preview nil t)
-  (x-sidebar--remove-from-dired-buffers))
-
 (defun x-sidebar--make-buffer (dir)
-  (let ((buf (x-sidebar--fresh-dired-buffer dir)))
+  (let ((buf (generate-new-buffer "*x-sidebar*")))
     (with-current-buffer buf
-      (rename-buffer (generate-new-buffer-name "*x-sidebar*"))
-      (x-sidebar--setup))
+      (x-sidebar-mode)
+      (x-sidebar--list-directory dir))
     buf))
 
 (defun x-sidebar--get-or-create-buffer (dir)
@@ -74,60 +125,41 @@
     (if (and my-buf (buffer-live-p my-buf))
         (progn
           (with-current-buffer my-buf
-            (unless (string= (expand-file-name dired-directory) full)
-              (setq-local dired-directory full)
+            (unless (string= (expand-file-name default-directory) full)
               (setq-local default-directory full)
-              (revert-buffer))
-            (x-sidebar--remove-from-dired-buffers))
+              (x-sidebar--list-directory full)))
           my-buf)
       (x-sidebar--make-buffer dir))))
 
-(defun x-sidebar--setup-keys ()
-  (local-set-key (kbd "RET") 'x-sidebar--ret)
-  (local-set-key (kbd "l") 'x-sidebar--ret)
-  (local-set-key (kbd "<right>") 'x-sidebar--ret)
-  (local-set-key (kbd "C-s C-w") 'x-sidebar--switch-to-main)
-  (local-set-key (kbd "j") 'dired-next-line)
-  (local-set-key (kbd "<down>") 'dired-next-line)
-  (local-set-key (kbd "k") 'dired-previous-line)
-  (local-set-key (kbd "<up>") 'dired-previous-line)
-  (local-set-key (kbd "h") 'x-sidebar--up-directory)
-  (local-set-key (kbd "<left>") 'x-sidebar--up-directory))
-
-(defun x-sidebar--ret ()
-  "RET handler: enter directory in sidebar or open file in main window."
-  (interactive)
-  (let ((file (dired-get-file-for-visit)))
-    (if (file-directory-p file)
-        (x-sidebar--enter-dir file)
-      (let ((main-win (x-sidebar--main-window)))
-        (when main-win
-          (select-window main-win)
-          (find-file file)
-          (select-window (x-sidebar--find-window)))))))
-
 (defun x-sidebar--enter-dir (dir)
-  "Enter DIR in the sidebar."
   (let ((buf (x-sidebar--get-or-create-buffer dir)))
     (x-sidebar--set-buffer buf)
     (setq-local x-sidebar--last-preview nil)
     (set-window-buffer (selected-window) buf)
     (x-sidebar--preview)))
 
+(defun x-sidebar--ret ()
+  (interactive)
+  (let ((file (x-sidebar--entry-at-point)))
+    (when file
+      (if (file-directory-p file)
+          (x-sidebar--enter-dir file)
+        (let ((main-win (x-sidebar--main-window)))
+          (when main-win
+            (select-window main-win)
+            (find-file file)
+            (select-window (x-sidebar--find-window))))))))
+
 (defun x-sidebar--up-directory ()
-  "Go to the parent directory in the sidebar."
   (interactive)
   (let* ((current (expand-file-name default-directory))
          (parent (file-name-directory (directory-file-name current))))
     (when (and parent (not (string= parent current)))
       (x-sidebar--enter-dir parent)
-      (ignore-errors (dired-goto-file current)))))
-
-(defvar-local x-sidebar--last-preview nil)
+      (x-sidebar--goto-entry current))))
 
 (defun x-sidebar--preview ()
-  "Preview the file at point in the main window."
-  (let ((file (ignore-errors (dired-get-file-for-visit))))
+  (let ((file (x-sidebar--entry-at-point)))
     (when (and file (not (equal file x-sidebar--last-preview)))
       (setq x-sidebar--last-preview file)
       (let ((buf (if (file-directory-p file)
@@ -140,11 +172,11 @@
 (defun x-sidebar--main-window ()
   (let ((cur (selected-window)))
     (or (cl-find-if (lambda (w) (not (eq w cur))) (window-list))
-        (let* ((file (ignore-errors (dired-get-file-for-visit)))
+        (let* ((file (x-sidebar--entry-at-point))
                (buf (cond (file (if (file-directory-p file)
                                     (dired-noselect file)
                                   (find-file-noselect file)))
-                          (t (other-buffer (current-buffer)))))
+                         (t (other-buffer (current-buffer)))))
                (new-win (split-window cur x-sidebar--width 'right)))
           (set-window-buffer new-win buf)
           new-win))))
