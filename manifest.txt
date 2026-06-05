@@ -30,3 +30,4 @@ git@github.com:emacs-compat/compat.git
 git@github.com:tarsius/cond-let.git
 git@github.com:tarsius/llama.git
 git@github.com:akermu/emacs-libvterm.git
+git@github.com:alexluigit/dirvish.git
