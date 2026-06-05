@@ -46,24 +46,57 @@
       (x-sidebar--goto-entry current-entry))
     (goto-char (min (point) (point-max)))))
 
+(defun x-sidebar--entry-rank (path is-dir)
+  (cond ((string-prefix-p "."
+                          (file-name-nondirectory
+                           (directory-file-name path)))
+         2)
+        (is-dir 0)
+        (t 1)))
+
+(defun x-sidebar--sort-entries (entries)
+  (sort entries
+        (lambda (a b)
+          (let* ((da (file-directory-p a))
+                 (db (file-directory-p b))
+                 (ra (x-sidebar--entry-rank a da))
+                 (rb (x-sidebar--entry-rank b db)))
+            (if (= ra rb)
+                (string< a b)
+              (< ra rb))))))
+
+(defun x-sidebar--face-for-entry (path name)
+  (cond ((string-prefix-p "." name) 'shadow)
+        ((file-directory-p path) 'font-lock-function-name-face)
+        ((file-symlink-p path) 'font-lock-constant-face)
+        ((and (file-executable-p path)
+              (not (file-directory-p path)))
+         'font-lock-warning-face)
+        (t nil)))
+
 (defun x-sidebar--list-directory (dir)
   (let* ((full-dir (file-name-as-directory (expand-file-name dir)))
          (entries (directory-files full-dir t directory-files-no-dot-files-regexp))
-         (sorted (sort entries (lambda (a b)
-                                 (let ((da (file-directory-p a))
-                                       (db (file-directory-p b)))
-                                   (if (eq da db)
-                                       (string< a b)
-                                     da)))))
+         (sorted (x-sidebar--sort-entries entries))
          (inhibit-read-only t))
     (erase-buffer)
+    (let* ((dname (file-name-nondirectory (directory-file-name full-dir)))
+            (dname (if (string= dname "") "/" dname))
+            (start (point)))
+      (insert " " dname (if (string= dname "/") "\n" "/\n"))
+      (put-text-property start (point) 'x-sidebar-path full-dir)
+      (put-text-property start (point) 'face 'font-lock-comment-face))
     (dolist (full sorted)
-      (let ((start (point))
-            (name (file-name-nondirectory (directory-file-name full))))
-        (insert (if (file-directory-p full) "/ " "  ")
-                name
-                "\n")
-        (put-text-property start (point) 'x-sidebar-path full)))
+      (let* ((start (point))
+             (name (file-name-nondirectory (directory-file-name full)))
+             (face (x-sidebar--face-for-entry full name)))
+        (insert " "
+                (if (file-directory-p full)
+                    (concat name "/\n")
+                  (concat name "\n")))
+        (put-text-property start (point) 'x-sidebar-path full)
+        (when face
+          (put-text-property start (point) 'face face))))
     (goto-char (point-min))
     (setq-local default-directory full-dir)
     (setq x-sidebar--last-mtime
@@ -74,7 +107,14 @@
   (get-text-property (line-beginning-position) 'x-sidebar-path))
 
 (defun x-sidebar--goto-entry (path)
-  (let ((pos (text-property-any (point-min) (point-max) 'x-sidebar-path path)))
+  (let ((pos nil)
+        (dpath (directory-file-name path)))
+    (goto-char (point-min))
+    (while (and (not pos) (not (eobp)))
+      (let ((p (get-text-property (line-beginning-position) 'x-sidebar-path)))
+        (when (or (equal p path) (equal p dpath))
+          (setq pos (line-beginning-position))))
+      (forward-line 1))
     (when pos
       (goto-char pos))))
 
@@ -96,20 +136,34 @@
                                          (buffer-name (window-buffer w)))))
                 (window-list))))
 
+(defun x-sidebar--initial-dir ()
+  (if (derived-mode-p 'dired-mode)
+      (or (file-name-directory (directory-file-name default-directory))
+          (expand-file-name default-directory))
+    default-directory))
+
 (defun x-sidebar ()
   "Toggle a dired sidebar on the left."
   (interactive)
-  (let ((win (x-sidebar--find-window)))
+  (let ((win (x-sidebar--find-window))
+        (dir (x-sidebar--initial-dir))
+        (orig (cond ((derived-mode-p 'dired-mode)
+                     (directory-file-name (expand-file-name default-directory)))
+                    ((buffer-file-name)
+                     (expand-file-name (buffer-file-name)))
+                    (t nil))))
     (if win
-        (let ((dir default-directory))
+        (progn
           (select-window win)
           (x-sidebar--enter-dir dir))
-      (let ((buf (x-sidebar--make-buffer default-directory)))
+      (let ((buf (x-sidebar--make-buffer dir)))
         (x-sidebar--set-buffer buf)
         (delete-other-windows)
         (let ((new-win (split-window (selected-window) (- x-sidebar--width) 'left)))
           (set-window-buffer new-win buf))
         (select-window (x-sidebar--find-window))
+        (when orig
+          (x-sidebar--goto-entry orig))
         (x-sidebar--preview)))))
 
 (defun x-sidebar--make-buffer (dir)
