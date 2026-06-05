@@ -34,7 +34,7 @@
         (let ((dir default-directory))
           (select-window win)
           (x-sidebar--enter-dir dir))
-      (let ((buf (dired-noselect default-directory)))
+      (let ((buf (x-sidebar--fresh-dired-buffer default-directory)))
         (with-current-buffer buf
           (x-sidebar--setup))
         (x-sidebar--set-buffer buf)
@@ -44,12 +44,25 @@
         (select-window (x-sidebar--find-window))
         (x-sidebar--preview)))))
 
+(defun x-sidebar--remove-from-dired-buffers ()
+  (setq dired-buffers
+        (cl-remove-if (lambda (entry)
+                        (let ((buf (if (consp entry) (cdr entry) entry)))
+                          (and (buffer-live-p buf)
+                               (string-prefix-p "*x-sidebar*" (buffer-name buf)))))
+                      dired-buffers)))
+
+(defun x-sidebar--fresh-dired-buffer (dir)
+  (let ((dired-buffers nil))
+    (dired-noselect (file-name-as-directory (expand-file-name dir)))))
+
 (defun x-sidebar--setup ()
   (rename-buffer (generate-new-buffer-name "*x-sidebar*"))
   (dired-hide-details-mode 1)
   (x-sidebar--setup-keys)
   (auto-revert-mode 1)
-  (add-hook 'post-command-hook #'x-sidebar--preview nil t))
+  (add-hook 'post-command-hook #'x-sidebar--preview nil t)
+  (x-sidebar--remove-from-dired-buffers))
 
 (defun x-sidebar--setup-keys ()
   (local-set-key (kbd "RET") 'x-sidebar--ret)
