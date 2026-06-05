@@ -23,7 +23,7 @@
     (cl-find-if (lambda (w)
                   (and (eq (window-frame w) frame)
                        (string-prefix-p "*x-sidebar*"
-                         (buffer-name (window-buffer w)))))
+                                        (buffer-name (window-buffer w)))))
                 (window-list))))
 
 (defun x-sidebar ()
@@ -33,8 +33,6 @@
     (if win
         (let ((dir default-directory))
           (select-window win)
-          (delete-other-windows)
-          (split-window nil x-sidebar--width 'right)
           (x-sidebar--enter-dir dir))
       (let ((buf (dired-noselect default-directory)))
         (with-current-buffer buf
