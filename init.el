@@ -49,3 +49,6 @@
 (load "config-uxn")
 (load "config-asm")
 (load "config-caml")
+(load "config-forth")
+(load "config-lua")
+(load "config-rust")
