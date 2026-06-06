@@ -1,5 +1,4 @@
 git@github.com:ocaml/caml-mode.git
-git@github.com:cicada-lang/cicada-mode.git
 git@github.com:clojure-emacs/clojure-mode.git
 git@github.com:Fanael/edit-indirect.git
 git@github.com:ensime/emacs-scala-mode.git
