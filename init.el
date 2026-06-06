@@ -35,8 +35,6 @@
 (load "config-initial-buffer")
 (load "config-emacs-server")
 (load "config-eshell")
-(load "config-theme")
-
 ;;;; langs
 
 (add-to-list 'load-path "~/.emacs.d/src/langs")
