@@ -51,17 +51,14 @@
 
 (global-set-key (kbd "C-o") (lambda () (interactive) (other-window +1)))
 
-(global-set-key (kbd "C-.") 'next-buffer)
-(global-set-key (kbd "C-,") 'previous-buffer)
+(global-set-key (kbd "M-p") 'backward-paragraph)
+(global-set-key (kbd "M-n") 'forward-paragraph)
 
 (global-set-key (kbd "C-x .") 'next-buffer)
 (global-set-key (kbd "C-x ,") 'previous-buffer)
 
 (global-set-key (kbd "C-M-.") 'next-buffer)
 (global-set-key (kbd "C-M-,") 'previous-buffer)
-
-(global-set-key (kbd "M-p") 'backward-paragraph)
-(global-set-key (kbd "M-n") 'forward-paragraph)
 
 ;;;; line wrap
 
