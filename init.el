@@ -21,10 +21,6 @@
 (load "config-region-state")
 (load "config-paredit")
 (load "config-warden-mode")
-(load "config-magit")
-(load "config-vterm")
-
-
 ;;;; configs
 
 (add-to-list 'load-path "~/.emacs.d/src")
