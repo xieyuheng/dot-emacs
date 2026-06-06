@@ -23,8 +23,7 @@
 (load "config-warden-mode")
 (load "config-magit")
 (load "config-vterm")
-(load "config-dirvish")
-(load "config-neotree")
+
 
 ;;;; configs
 
