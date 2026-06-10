@@ -4,6 +4,11 @@
 
 (defvar x-sidebar--width 30 "Sidebar width in columns.")
 
+(defvar x-sidebar-ignore-patterns
+  '("\\.o\\'" "\\.pyc\\'" "\\.elc\\'")
+  "List of regex patterns for files to hide in sidebar.
+Each pattern is matched against just the file name (not full path).")
+
 (defvar x-sidebar--state nil
   "Alist of (frame . buffer) for each frame.")
 
@@ -74,9 +79,14 @@
          'font-lock-warning-face)
         (t nil)))
 
+(defun x-sidebar--ignore-p (path)
+  (let ((name (file-name-nondirectory (directory-file-name path))))
+    (cl-some (lambda (re) (string-match-p re name)) x-sidebar-ignore-patterns)))
+
 (defun x-sidebar--list-directory (dir)
   (let* ((full-dir (file-name-as-directory (expand-file-name dir)))
          (entries (directory-files full-dir t directory-files-no-dot-files-regexp))
+         (entries (cl-remove-if #'x-sidebar--ignore-p entries))
          (sorted (x-sidebar--sort-entries entries))
          (inhibit-read-only t))
     (erase-buffer)
