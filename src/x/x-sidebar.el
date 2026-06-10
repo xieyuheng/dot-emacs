@@ -109,6 +109,7 @@ Each pattern is matched against just the file name (not full path).")
         (when face
           (put-text-property start (point) 'face face))))
     (goto-char (point-min))
+    (forward-line 1)
     (setq-local default-directory full-dir)
     (setq x-sidebar--last-mtime
           (file-attribute-modification-time
