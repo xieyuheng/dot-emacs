@@ -5,7 +5,14 @@
 (defvar x-sidebar--width 30 "Sidebar width in columns.")
 
 (defvar x-sidebar-ignore-patterns
-  '("\\.o\\'" "\\.pyc\\'" "\\.elc\\'")
+  '(;; c
+    "\\.o\\'" "\\.test\\'" "\\.exe\\'"
+    ;; meta-lisp
+    "\\.xexe\\'"
+    ;; python
+    "\\.pyc\\'"
+    ;; elisp
+    "\\.elc\\'")
   "List of regex patterns for files to hide in sidebar.
 Each pattern is matched against just the file name (not full path).")
 
@@ -91,8 +98,8 @@ Each pattern is matched against just the file name (not full path).")
          (inhibit-read-only t))
     (erase-buffer)
     (let* ((dname (file-name-nondirectory (directory-file-name full-dir)))
-            (dname (if (string= dname "") "/" dname))
-            (start (point)))
+           (dname (if (string= dname "") "/" dname))
+           (start (point)))
       (insert " " dname (if (string= dname "/") "\n" "/\n"))
       (put-text-property start (point) 'x-sidebar-path full-dir)
       (put-text-property start (point) 'face 'font-lock-comment-face)
@@ -146,7 +153,7 @@ Each pattern is matched against just the file name (not full path).")
     (cl-find-if (lambda (w)
                   (and (eq (window-frame w) frame)
                        (string-prefix-p "*x-sidebar*"
-                                         (buffer-name (window-buffer w)))))
+                                        (buffer-name (window-buffer w)))))
                 (window-list))))
 
 (defun x-sidebar--initial-dir ()
@@ -243,7 +250,7 @@ Each pattern is matched against just the file name (not full path).")
                (buf (cond (file (if (file-directory-p file)
                                     (dired-noselect file)
                                   (find-file-noselect file)))
-                         (t (other-buffer (current-buffer)))))
+                          (t (other-buffer (current-buffer)))))
                (new-win (split-window cur x-sidebar--width 'right)))
           (set-window-buffer new-win buf)
           new-win))))
